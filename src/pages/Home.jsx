@@ -1,12 +1,9 @@
-import Header from "../layout/components/Header";
-import Footer from "../layout/components/Footer";
+import Layout from "../layout/Layout";
 
 const Home = () => {
     return (
         <>
-            <Header />
-            <h1>HOME</h1>
-            <Footer />
+            <Layout />
         </>
     )
 }
