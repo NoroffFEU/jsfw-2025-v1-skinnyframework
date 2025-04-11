@@ -1,9 +1,9 @@
 import Layout from "../layout/Layout";
 
-const Home = () => {
+const Home = ({ themeStyles }) => {
   return (
     <>
-      <Layout />
+      <Layout themeStyles={themeStyles} />
     </>
   );
 };
