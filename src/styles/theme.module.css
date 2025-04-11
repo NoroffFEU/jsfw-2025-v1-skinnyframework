@@ -28,3 +28,10 @@
     --icon: #e5e7eb;
   }
 }
+
+.heading {
+  font-size: 2.5rem;
+  font-weight: 700;
+  background-color: var(--primary);
+  color: var(--accent);
+}
