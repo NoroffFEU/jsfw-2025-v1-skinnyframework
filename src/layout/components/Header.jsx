@@ -1,9 +1,8 @@
-import { useState } from "react";
-
-const Header = () => {
+const Header = ({ themeStyles }) => {
   return (
     <div role="header">
-      <h1 style={{ color: "green" }}>Header</h1>
+      <img src="/src/assets/logoSVG.svg" alt="GLiP logo" id="logo" />
+      <h1 className={themeStyles.heading}>GLiP</h1>
     </div>
   );
 };

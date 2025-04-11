@@ -11,14 +11,14 @@ const Layout = ({ themeStyles }) => {
 
   return (
     <>
-      <Header />
+      <Header themeStyles={themeStyles} />
       <h1
         id="layoutHeading"
         className={themeStyles.heading}
       >
         LAYOUT
       </h1>
-      <Footer />
+      <Footer themeStyles={themeStyles} />
     </>
   );
 };
