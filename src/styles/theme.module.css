@@ -1,0 +1,30 @@
+/* SKINNY THEME */
+@layer theme {
+  :root {
+    --primary: #1e3a8a;
+    --accent: #f97316;
+    --text: #374151;
+    --sections: #ffffff;
+    --background: #f3f4f6;
+    --header-footer: #1e3a8a;
+    --button-bg: #1e3a8a;
+    --button-text: #ffffff;
+    --cta-bg: #f97316;
+    --cta-text: #1f2937;
+    --icon: #374151;
+  }
+
+  :global(body.dark) {
+    --primary: #3b82f6;
+    --accent: #fb923c;
+    --text: #e5e7eb;
+    --sections: #2d2d2d;
+    --background: #121212;
+    --header-footer: #3b82f6;
+    --button-bg: #3b82f6;
+    --button-text: #ffffff;
+    --cta-bg: #c2410c;
+    --cta-text: #ffffff;
+    --icon: #e5e7eb;
+  }
+}
