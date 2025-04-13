@@ -12,6 +12,7 @@ const Layout = ({ themeStyles }) => {
       >
         LAYOUT
       </h1>
+      <button>a button</button>
       <Footer themeStyles={themeStyles} />
     </>
   );

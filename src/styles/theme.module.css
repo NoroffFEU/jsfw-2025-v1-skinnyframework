@@ -1,6 +1,14 @@
 /* SKINNY THEME */
 @layer theme {
   :root {
+    /* font styles */
+
+    /* button styles */
+    --button-rad: 9px;
+    --button-pad-y: 0.75rem;
+    --button-pad-x: 1.75rem;
+
+    /* light theme styles */
     --primary: #1e3a8a;
     --accent: #f97316;
     --text: #374151;
@@ -15,6 +23,7 @@
   }
 
   :global(body.dark) {
+    /* dark theme styles */
     --primary: #3b82f6;
     --accent: #fb923c;
     --text: #e5e7eb;
@@ -52,10 +61,21 @@
   }
 }
 
-@layer globals {
-  .heading {
-    font-family: "Quicksand", sans-serif;
-    font-weight: 700;
-    color: var(--text);
-  }
+/* globals */
+body {
+  background-color: var(--background);
+}
+
+.heading {
+  font-family: "Quicksand", sans-serif;
+  font-weight: 700;
+  color: var(--text);
+}
+
+button,
+.button {
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  border-radius: var(--button-rad);
+  padding: var(--button-pad-y) var(--button-pad-x);
 }
