@@ -72,7 +72,6 @@ body {
   color: var(--text);
 }
 
-button,
 .button {
   background-color: var(--button-bg);
   color: var(--button-text);
