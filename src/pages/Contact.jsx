@@ -1,9 +1,7 @@
-import Layout from "../layout/Layout";
-
 const Contact = ({ themeStyles }) => {
   return (
     <>
-      <Layout themeStyles={themeStyles} />
+      <h1 className={themeStyles.heading}>CONTACT</h1>
     </>
   );
 };

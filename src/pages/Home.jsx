@@ -1,9 +1,7 @@
-import Layout from "../layout/Layout";
-
 const Home = ({ themeStyles }) => {
   return (
     <>
-      <Layout themeStyles={themeStyles} />
+      <h1 className={themeStyles.heading}>HOME</h1>
     </>
   );
 };
