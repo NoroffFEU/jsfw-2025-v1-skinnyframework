@@ -39,7 +39,6 @@
     /* Range for variable font weights */
     font-style: normal;
     font-display: swap;
-    /* Improves loading performance */
   }
 
   /* Noto Serif Variable Font */
@@ -48,7 +47,6 @@
     src: url("../assets/fonts/NotoSerif-VariableFont_wght.ttf")
       format("truetype");
     font-weight: 100 900;
-    /* Range for variable font weights */
     font-style: normal;
     font-display: swap;
   }
