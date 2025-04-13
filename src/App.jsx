@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom"; // Fix incorrect import
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./layout/Layout";
 // pages
 import Home from "./pages/Home";
