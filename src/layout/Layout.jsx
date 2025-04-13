@@ -1,14 +1,11 @@
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
-const Layout = ({ themeStyles }) => {
+const Layout = ({ children, themeStyles }) => {
   return (
     <>
       <Header themeStyles={themeStyles} />
-      <h1 id="layoutHeading" className={themeStyles.heading}>
-        LAYOUT
-      </h1>
-      <button>a button</button>
+      <main>{children}</main>
       <Footer themeStyles={themeStyles} />
     </>
   );
