@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router";
 import Layout from "./layout/Layout";
 // pages
 import Home from "./pages/Home";
@@ -26,7 +26,7 @@ function App() {
           <Route
             key={path}
             path={path}
-            element={<Layout themeStyles={themeStyles}>{element}</Layout>}
+            element={<Layout themeStyles={themeStyles} routes={routes}>{element}</Layout>}
           />
         ))}
       </Routes>
