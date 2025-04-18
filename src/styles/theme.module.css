@@ -84,12 +84,32 @@
 /* ========================= */
 
 .header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   padding: 1rem 2rem;
   background-color: var(--header-footer);
 }
+
+/* ========================= */
+/* WRAPPER STYLES */
+/* ========================= */
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1240px; /* Adjust for preference */
+  margin: 0 auto; /* Center content */
+  padding: 0 1.5rem; /* Ensure padding on smaller screens */
+}
+
+@media (max-width: 768px) {
+  .wrapper {
+    padding: 0 0.75rem; /* Reduce padding for mobile */
+  }
+}
+
+/* ========================= */
+/* LOGO STYLES */
+/* ========================= */
 
 .logoLink {
   display: flex;
@@ -115,18 +135,21 @@
 /* NAVIGATION STYLES */
 /* ========================= */
 
+/* Parent navigation container */
 .nav {
   display: flex;
-  gap: 1rem;
-  list-style: none;
-  padding: 0;
+  align-items: center;
+  gap: 2rem; /* Increased gap for desktop */
 }
 
-.nav ul {
+/* Navigation List */
+.navList {
   display: flex;
-  gap: 1rem;
+  gap: 2rem; /* Increased spacing between nav links */
+  list-style: none;
 }
 
+/* NavLink styled as buttons */
 .navLink {
   background-color: var(--sections);
   color: var(--header-footer);
@@ -148,6 +171,46 @@
   background-color: var(--primary);
   color: var(--button-text);
   border: 2px solid var(--primary);
+}
+
+/* Hamburger Menu */
+.hamburger {
+  display: none;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--button-text);
+}
+
+/* Mobile Navigation */
+@media (max-width: 768px) {
+  .nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navList {
+    display: none;
+    flex-direction: column;
+    gap: 0.5rem;
+    background-color: var(--header-footer);
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    padding: 1rem;
+  }
+
+  .navOpen {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1.75rem;
+  }
+
+  .hamburger {
+    display: block;
+  }
 }
 
 /* ========================= */

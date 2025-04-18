@@ -1,13 +1,16 @@
 import Nav from "../../ui/components/Nav.jsx";
+import Wrapper from "../../ui/components/Wrapper.jsx";
 
 const Header = ({ themeStyles, routes }) => {
   return (
     <header className={themeStyles.header}>
-      <a className={themeStyles.logoLink} href="/">
-        <img src="/src/assets/logoSVG.svg" alt="GLiP logo" />
-        <span className={themeStyles.logoText}>GLiP</span> {/* Explicitly add class */}
-      </a>
-      <Nav themeStyles={themeStyles} routes={routes} />
+      <Wrapper themeStyles={themeStyles}>
+        <a className={themeStyles.logoLink} href="/">
+          <img src="/src/assets/logoSVG.svg" alt="GLiP logo" />
+          <span className={themeStyles.logoText}>GLiP</span>
+        </a>
+        <Nav themeStyles={themeStyles} routes={routes} />
+      </Wrapper>
     </header>
   );
 };
