@@ -1,12 +1,16 @@
-/* SKINNY THEME */
+/* ========================= */
+/* THEME VARIABLES */
+/* ========================= */
+
+/* Light Theme */
 @layer theme {
   :root {
-    /* button styles */
+    /* Button Styles */
     --button-rad: 9px;
     --button-pad-y: 0.75rem;
     --button-pad-x: 1.75rem;
 
-    /* light theme styles */
+    /* Colors */
     --primary: #1e3a8a;
     --accent: #f97316;
     --text: #374151;
@@ -20,8 +24,8 @@
     --icon: #374151;
   }
 
+  /* Dark Theme */
   :global(body.dark) {
-    /* dark theme styles */
     --primary: #3b82f6;
     --accent: #fb923c;
     --text: #e5e7eb;
@@ -36,12 +40,16 @@
   }
 }
 
+/* ========================= */
+/* FONT DEFINITIONS */
+/* ========================= */
+
 @layer fonts {
   /* Quicksand Variable Font */
   @font-face {
-    font-family: "Quicksand";
-    src: url("../assets/fonts/Quicksand-VariableFont_wght.ttf")
-      format("truetype");
+    font-family: 'Quicksand';
+    src: url('../assets/fonts/Quicksand-VariableFont_wght.ttf')
+      format('truetype');
     font-weight: 300 700;
     font-style: normal;
     font-display: swap;
@@ -49,25 +57,32 @@
 
   /* Noto Serif Variable Font */
   @font-face {
-    font-family: "Noto Serif";
-    src: url("../assets/fonts/NotoSerif-VariableFont_wght.ttf")
-      format("truetype");
+    font-family: 'Noto Serif';
+    src: url('../assets/fonts/NotoSerif-VariableFont_wght.ttf')
+      format('truetype');
     font-weight: 100 900;
     font-style: normal;
     font-display: swap;
   }
 
   :root {
-    --font-heading: "Quicksand", sans-serif;
-    --font-body: "Noto Serif", serif;
+    --font-heading: 'Quicksand', sans-serif;
+    --font-body: 'Noto Serif', serif;
   }
 }
+
+/* ========================= */
+/* GLOBAL STYLES */
+/* ========================= */
 
 .page-body {
   background-color: var(--background);
 }
 
-/* header styles */
+/* ========================= */
+/* HEADER STYLES */
+/* ========================= */
+
 .header {
   display: flex;
   align-items: center;
@@ -96,7 +111,10 @@
   color: var(--button-text);
 }
 
-/* nav styles */
+/* ========================= */
+/* NAVIGATION STYLES */
+/* ========================= */
+
 .nav {
   display: flex;
   gap: 1rem;
@@ -132,14 +150,54 @@
   border: 2px solid var(--primary);
 }
 
-/* typography */
+/* ========================= */
+/* FOOTER STYLES */
+/* ========================= */
+
+.footer {
+  background-color: var(--header-footer);
+  padding: 2rem;
+  text-align: center;
+}
+
+.footerWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.footer nav ul {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+}
+
+.footer a {
+  color: var(--button-text);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.footer a:hover {
+  color: var(--accent);
+}
+
+/* ========================= */
+/* TYPOGRAPHY */
+/* ========================= */
+
 .heading {
-  font-family: "Quicksand", sans-serif;
+  font-family: var(--font-heading);
   font-weight: 700;
   color: var(--text);
 }
 
-/* ui */
+/* ========================= */
+/* UI ELEMENTS */
+/* ========================= */
+
 .button {
   background-color: var(--button-bg);
   color: var(--button-text);
@@ -147,7 +205,10 @@
   padding: var(--button-pad-y) var(--button-pad-x);
 }
 
-/* error page */
+/* ========================= */
+/* ERROR PAGE STYLES */
+/* ========================= */
+
 .errorPage {
   text-align: center;
   padding: 4rem;
