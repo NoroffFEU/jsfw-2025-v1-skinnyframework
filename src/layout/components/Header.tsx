@@ -1,7 +1,7 @@
-import { FC } from "react";
-import { ThemeStyles } from "../../types/themeStyles";
-import Wrapper from "../../ui/components/Wrapper.jsx";
-import Nav from "../../ui/components/Nav.js";
+import { FC } from 'react';
+import { ThemeStyles } from '../../types/themeStyles';
+import Wrapper from '../../ui/components/Wrapper.jsx';
+import Nav from '../../ui/components/Nav.js';
 
 interface HeaderProps {
   themeStyles: ThemeStyles;

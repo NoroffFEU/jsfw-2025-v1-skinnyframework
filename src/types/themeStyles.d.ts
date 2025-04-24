@@ -1,3 +1,3 @@
 export interface ThemeStyles {
-    [key: string]: string;
-};
+  [key: string]: string;
+}
