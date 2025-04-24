@@ -1,4 +1,4 @@
-import Nav from "../../ui/components/Nav.jsx";
+import Nav from "../../ui/components/Nav.js";
 import Wrapper from "../../ui/components/Wrapper.jsx";
 
 const Header = ({ themeStyles, routes }) => {
