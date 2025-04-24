@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { NavLink } from "react-router";
+import { useState } from 'react';
+import { NavLink } from 'react-router';
 
 const Nav = ({ themeStyles, routes }) => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -15,15 +15,17 @@ const Nav = ({ themeStyles, routes }) => {
       </button>
 
       {/* Navigation Links */}
-      <ul className={`${themeStyles.navList} ${menuOpen ? themeStyles.navOpen : ""}`}>
+      <ul
+        className={`${themeStyles.navList} ${menuOpen ? themeStyles.navOpen : ''}`}
+      >
         {routes
-          .filter(({ path }) => path !== "*") // Exclude the error route
+          .filter(({ path }) => path !== '*') // Exclude the error route
           .map(({ path, element }) => (
             <li key={path}>
               <NavLink
                 to={path}
                 className={({ isActive }) =>
-                  `${themeStyles.navLink} ${isActive ? themeStyles.activeLink : ""}`
+                  `${themeStyles.navLink} ${isActive ? themeStyles.activeLink : ''}`
                 }
                 onClick={() => setMenuOpen(false)} // Close menu after clicking a link
               >

@@ -1,7 +1,14 @@
-import Nav from "../../ui/components/Nav.jsx";
-import Wrapper from "../../ui/components/Wrapper.jsx";
+import { FC } from 'react';
+import { ThemeStyles } from '../../types/themeStyles';
+import Wrapper from '../../ui/components/Wrapper.jsx';
+import Nav from '../../ui/components/Nav.js';
 
-const Header = ({ themeStyles, routes }) => {
+interface HeaderProps {
+  themeStyles: ThemeStyles;
+  routes: Array<{ path: string; name: string }>;
+}
+
+const Header: FC<HeaderProps> = ({ themeStyles, routes }) => {
   return (
     <header className={themeStyles.header}>
       <Wrapper themeStyles={themeStyles}>
