@@ -6,8 +6,7 @@ const Footer: FC<PageProps> = ({ themeStyles }) => {
     <footer className={themeStyles.footer}>
       <div className={themeStyles.footerWrapper}>
         <p>
-          &copy; {new Date().getFullYear()} Greedy Little Pigs. All rights
-          reserved.
+          &copy; {new Date().getFullYear()} Greedy Little Pigs. All rights reserved.
         </p>
         <nav>
           <ul>
