@@ -20,7 +20,7 @@ const routes = [
   { path: '*', element: <ErrorPage themeStyles={themeStyles} /> }, // Catch-all route for 404
 ];
 
-const App: FC<PageProps> = () => {
+const App: FC<PageProps> = ({themeStyles}) => {
   return (
     <BrowserRouter>
       <Routes>

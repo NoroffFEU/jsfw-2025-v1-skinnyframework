@@ -1,9 +1,5 @@
 import { FC } from "react";
-
-interface WrapperProps {
-  children: React.ReactNode;
-  themeStyles: { [key: string]: string };
-}
+import { WrapperProps } from "types/props";
 
 const Wrapper: FC<WrapperProps> = ({ children, themeStyles }) => {
   return <div className={themeStyles.wrapper}>{children}</div>;

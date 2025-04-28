@@ -1,12 +1,18 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
+import themeStyles from './styles/theme.module.css';
 import App from './App';
 import './index.css';
 
 const rootElement = document.getElementById('root');
 
 // A function to display a friendly fallback UI when a critical error occurs.
-function displayFallbackUI(error: Error) {
+interface FallbackUIProps {
+  error: Error;
+  themeStyles: Record<string, string>;
+}
+
+function displayFallbackUI({ error, themeStyles }: FallbackUIProps): void {
   console.error('Fatal error encountered:', error);
   // Clear the existing content and create a fallback UI with inline styling.
   document.body.innerHTML = `
@@ -41,18 +47,21 @@ try {
   // If all is well, initialize the app.
   createRoot(rootElement).render(
     <StrictMode>
-      <App />
+      <App themeStyles={themeStyles} />
     </StrictMode>,
   );
 } catch (error: unknown) {
   // Ensure we have a proper Error object to pass to our fallback UI
   if (error instanceof Error) {
-    displayFallbackUI(error);
+    displayFallbackUI({ error, themeStyles });
   } else {
     displayFallbackUI(
-      new Error(
-        'An unknown error occurred while initializing the app. We have fired the person responsible.',
-      ),
+      {
+        error: new Error(
+          'An unknown error occurred while initializing the app. We have fired the person responsible.',
+        ),
+        themeStyles,
+      },
     );
   }
 }
