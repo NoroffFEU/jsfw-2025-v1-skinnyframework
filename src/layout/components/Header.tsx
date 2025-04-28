@@ -1,11 +1,11 @@
 import { FC } from 'react';
-import { ThemeStyles } from '../../types/themeStyles';
+import { RouteProps, ThemeStyles } from '../../types/props';
 import Wrapper from '../../ui/components/Wrapper.jsx';
 import Nav from '../../ui/components/Nav.js';
 
 interface HeaderProps {
   themeStyles: ThemeStyles;
-  routes: Array<{ path: string; name: string }>;
+  routes: RouteProps[];
 }
 
 const Header: FC<HeaderProps> = ({ themeStyles, routes }) => {

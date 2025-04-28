@@ -1,11 +1,7 @@
-import { ThemeStyles } from '../types/themeStyles';
+import { PageProps } from '../types/props';
 import { FC } from 'react';
 
-interface ErrorPageProps {
-  themeStyles: ThemeStyles;
-}
-
-const ErrorPage: FC<ErrorPageProps> = ({ themeStyles }) => {
+const ErrorPage: FC<PageProps> = ({ themeStyles }) => {
   return (
     <div className={themeStyles.errorPage}>
       <h1>404 - Page Not Found</h1>

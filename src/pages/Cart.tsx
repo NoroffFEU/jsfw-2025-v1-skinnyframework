@@ -1,11 +1,7 @@
-import { ThemeStyles } from '../types/themeStyles';
+import { PageProps } from '../types/props';
 import { FC } from 'react';
 
-interface CartProps {
-  themeStyles: ThemeStyles;
-}
-
-const Cart: FC<CartProps> = ({ themeStyles }) => {
+const Cart: FC<PageProps> = ({ themeStyles }) => {
   return (
     <>
       <h1 className={themeStyles.heading}>CART</h1>

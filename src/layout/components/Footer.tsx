@@ -1,11 +1,7 @@
 import { FC } from 'react';
-import { ThemeStyles } from '../../types/themeStyles';
+import { PageProps } from '../../types/props';
 
-interface FooterProps {
-  themeStyles: ThemeStyles;
-}
-
-const Footer: FC<FooterProps> = ({ themeStyles }) => {
+const Footer: FC<PageProps> = ({ themeStyles }) => {
   return (
     <footer className={themeStyles.footer}>
       <div className={themeStyles.footerWrapper}>

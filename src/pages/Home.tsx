@@ -1,11 +1,7 @@
-import { ThemeStyles } from '../types/themeStyles';
+import { PageProps } from '../types/props';
 import { FC } from 'react';
 
-interface HomeProps {
-  themeStyles: ThemeStyles;
-}
-
-const Home: FC<HomeProps> = ({ themeStyles }) => {
+const Home: FC<PageProps> = ({ themeStyles }) => {
   return (
     <>
       <h1 className={themeStyles.heading}>HOME</h1>

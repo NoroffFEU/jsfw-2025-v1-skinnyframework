@@ -96,14 +96,18 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  max-width: 1240px; /* Adjust for preference */
-  margin: 0 auto; /* Center content */
-  padding: 0 1.5rem; /* Ensure padding on smaller screens */
+  max-width: 1240px;
+  /* Adjust for preference */
+  margin: 0 auto;
+  /* Center content */
+  padding: 0 1.5rem;
+  /* Ensure padding on smaller screens */
 }
 
 @media (max-width: 768px) {
   .wrapper {
-    padding: 0 0.75rem; /* Reduce padding for mobile */
+    padding: 0 0.75rem;
+    /* Reduce padding for mobile */
   }
 }
 
@@ -139,13 +143,15 @@
 .nav {
   display: flex;
   align-items: center;
-  gap: 2rem; /* Increased gap for desktop */
+  gap: 2rem;
+  /* Increased gap for desktop */
 }
 
 /* Navigation List */
 .navList {
   display: flex;
-  gap: 2rem; /* Increased spacing between nav links */
+  gap: 2rem;
+  /* Increased spacing between nav links */
   list-style: none;
 }
 

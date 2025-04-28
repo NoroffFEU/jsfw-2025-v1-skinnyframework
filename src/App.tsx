@@ -8,6 +8,8 @@ import Checkout from './pages/Checkout';
 import Contact from './pages/Contact';
 import ErrorPage from './pages/ErrorPage';
 import themeStyles from './styles/theme.module.css';
+import { FC } from 'react';
+import { PageProps } from 'types/props';
 
 const routes = [
   { path: '/', element: <Home themeStyles={themeStyles} /> },
@@ -18,7 +20,7 @@ const routes = [
   { path: '*', element: <ErrorPage themeStyles={themeStyles} /> }, // Catch-all route for 404
 ];
 
-function App() {
+const App: FC<PageProps> = () => {
   return (
     <BrowserRouter>
       <Routes>

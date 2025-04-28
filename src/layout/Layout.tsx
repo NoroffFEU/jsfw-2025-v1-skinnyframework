@@ -1,13 +1,8 @@
 import Header from './components/Header';
 import Footer from './components/Footer';
 import { FC } from 'react';
-import { ThemeStyles } from '../types/themeStyles';
+import { LayoutProps } from '../types/props';
 
-interface LayoutProps {
-  children: React.ReactNode;
-  themeStyles: ThemeStyles;
-  routes: Array<{ path: string; name: string }>;
-}
 
 const Layout: FC<LayoutProps> = ({ children, themeStyles, routes }) => {
   return (

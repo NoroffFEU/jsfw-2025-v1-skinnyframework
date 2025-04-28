@@ -1,7 +1,13 @@
-import { useState } from 'react';
+import React, { useState, FC } from 'react';
 import { NavLink } from 'react-router';
+import { ThemeStyles, RouteProps } from 'types/props';
 
-const Nav = ({ themeStyles, routes }) => {
+interface NavProps {
+  themeStyles: ThemeStyles;
+  routes: RouteProps[];
+}
+
+const Nav: FC<NavProps> = ({ themeStyles, routes }) => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
@@ -29,7 +35,7 @@ const Nav = ({ themeStyles, routes }) => {
                 }
                 onClick={() => setMenuOpen(false)} // Close menu after clicking a link
               >
-                {element.type.name}
+                {React.isValidElement(element) && typeof element.type === 'function' ? element.type.name : ''}
               </NavLink>
             </li>
           ))}
