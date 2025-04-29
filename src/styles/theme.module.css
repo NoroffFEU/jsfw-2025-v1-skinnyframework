@@ -97,17 +97,13 @@
   align-items: center;
   justify-content: space-between;
   max-width: 1240px;
-  /* Adjust for preference */
-  margin: 0 auto;
-  /* Center content */
+  margin: 0 auto; /* Center content */
   padding: 0 1.5rem;
-  /* Ensure padding on smaller screens */
 }
 
 @media (max-width: 768px) {
   .wrapper {
     padding: 0 0.75rem;
-    /* Reduce padding for mobile */
   }
 }
 
@@ -139,23 +135,18 @@
 /* NAVIGATION STYLES */
 /* ========================= */
 
-/* Parent navigation container */
 .nav {
   display: flex;
   align-items: center;
   gap: 2rem;
-  /* Increased gap for desktop */
 }
 
-/* Navigation List */
 .navList {
   display: flex;
   gap: 2rem;
-  /* Increased spacing between nav links */
   list-style: none;
 }
 
-/* NavLink styled as buttons */
 .navLink {
   background-color: var(--sections);
   color: var(--header-footer);
@@ -189,7 +180,6 @@
   color: var(--button-text);
 }
 
-/* Mobile Navigation */
 @media (max-width: 768px) {
   .nav {
     flex-direction: column;
@@ -264,42 +254,31 @@
 }
 
 /* ========================= */
-/* UI ELEMENTS */
+/* GRID & PRODUCT CARD */
 /* ========================= */
 
-.button {
-  background-color: var(--button-bg);
-  color: var(--button-text);
-  border-radius: var(--button-rad);
-  padding: var(--button-pad-y) var(--button-pad-x);
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
 }
 
-/* ========================= */
-/* ERROR PAGE STYLES */
-/* ========================= */
-
-.errorPage {
+.card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 1rem;
+  background: var(--sections);
   text-align: center;
-  padding: 4rem;
-  background-color: var(--sections);
-  color: var(--text);
 }
 
-.errorPage h1 {
-  font-size: 2rem;
-  font-weight: bold;
+.image {
+  max-width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 4px;
 }
 
-.errorPage p {
-  font-size: 1.2rem;
-}
-
-.errorPage a {
+.discount {
   color: var(--accent);
-  text-decoration: none;
-  font-weight: 600;
-}
-
-.errorPage a:hover {
-  text-decoration: underline;
+  font-weight: bold;
 }
