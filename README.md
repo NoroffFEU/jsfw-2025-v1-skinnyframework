@@ -1,38 +1,51 @@
-### **JavaScript Frameworks Project Summary**
+### **Project Objectives**
 
-#### **Core Features**
-
-1. **Fetch & Display Products**:
-
-   - Use API (`GET /online-shop`) to display products in a grid with details (image, title, prices, rating, discounts).
-   - Show discount stickers for discounted products.
-
-2. **Product Details Page**:
-
-   - Dynamic routing to fetch and display detailed product info (API: `GET /online-shop/<id>`).
-   - Add "Add to Cart" button with a toast notification.
-
-3. **Search & Sort**:
-
-   - Search bar for filtering products in real-time.
-   - Sort products by price or name.
-
-4. **Shopping Cart System**:
-
-   - Cart state: adjustable quantities, item removal, total cost.
-   - Display cart count in the header.
-   - Checkout with a confirmation page and cart clearance.
-
-5. **Contact Page**:
-   - Form with TypeScript validation (name, subject, email, message).
-   - Validation messages and toast notifications for feedback.
+- Build an e-commerce store with React using the API endpoint: [https://v2.api.noroff.dev/online-shop](https://v2.api.noroff.dev/online-shop).
+- Create and style pages: Homepage, Product Details, Cart, Checkout Success, and Contact.
+- Implement essential features:
+  - **Homepage**: Product listing with a search bar for filtering.
+  - **Product Page**: Product details with an "Add to Cart" button and discount display.
+  - **Cart Page**: List of added items, total cost, and checkout button.
+  - **Checkout Success Page**: Display confirmation and clear cart.
+  - **Contact Page**: A form with validation for name, subject, email, and body fields.
+- Utilize **React Router** for navigation between pages.
+- Ensure a responsive, visually appealing design (recommended: CSS Modules or styled-components).
 
 ---
 
-#### **Additional Requirements**
+### **Key Features**
 
-- **Toast Notifications**: Reusable system for feedback on actions (add to cart, checkout, form errors).
-- **Responsive Design**: Mobile-friendly, user-friendly layout (use a CSS framework like Tailwind, Material-UI).
-- **TypeScript Integration**: Use strict types for APIs, components, and states.
-- **Testing**: Add tests for components (React Testing Library).
-- **Code Quality**: Clean, maintainable, well-documented code.
+1. **Navigation**:
+
+   - Header with Nav and Cart icon (show item count).
+   - Footer for consistent layout.
+
+2. **API Integration**:
+
+   - Fetch all products (`GET /online-shop`).
+   - Fetch individual product details (`GET /online-shop/<id>`).
+
+3. **Dynamic Features**:
+
+   - Lookahead search bar on the Homepage.
+   - Product discount calculations and reviews on Product Page.
+   - Adjustable cart with item removal and total calculations.
+   - Toast notifications for key actions.
+
+4. **Validation**:
+
+   - Contact form validation (name, subject, email, body).
+   - Log form data on successful validation.
+
+5. **State Management**:
+   - Implement a cart state to track items, quantities, and totals.
+
+---
+
+### **Delivery Requirements**
+
+- Host the live project on **Netlify**.
+- Submit:
+  - Public GitHub repository (exclude `node_modules`).
+  - Live demo URL.
+- Ensure your code is clean, responsive, and adheres to API specs.
