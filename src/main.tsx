@@ -3,8 +3,10 @@ import { createRoot } from 'react-dom/client';
 import themeStyles from './styles/theme.module.css';
 import App from './App';
 import './index.css';
+import { ToastProvider } from './context/ToastContext';
+import { CartProvider } from './context/CartContext';
 
-const rootElement = document.getElementById('root');
+const root = document.getElementById('root');
 
 // A function to display a friendly fallback UI when a critical error occurs.
 interface FallbackUIProps {
@@ -38,16 +40,18 @@ function displayFallbackUI({ error, themeStyles }: FallbackUIProps): void {
 
 try {
   // If the root element isn't found, throw an error to be handled gracefully.
-  if (!rootElement) {
+  if (!root) {
     throw new Error(
       "The essential 'root' element is missing. Please check your index.html for a div with id='root'.",
     );
   }
 
   // If all is well, initialize the app.
-  createRoot(rootElement).render(
+  createRoot(root).render(
     <StrictMode>
-      <App themeStyles={themeStyles} />
+      <ToastProvider><CartProvider>
+        <App themeStyles={themeStyles} />
+      </CartProvider></ToastProvider>
     </StrictMode>,
   );
 } catch (error: unknown) {
