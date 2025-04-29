@@ -1,6 +1,7 @@
 import React, { useState, FC } from 'react';
 import { NavLink } from 'react-router';
 import { ThemeStyles, RouteProps } from 'types/props';
+import CartIcon from './CartIcon';
 
 interface NavProps {
   themeStyles: ThemeStyles;
@@ -17,7 +18,7 @@ const Nav: FC<NavProps> = ({ themeStyles, routes }) => {
         className={themeStyles.hamburger}
         onClick={() => setMenuOpen(!menuOpen)}
       >
-        ☰ {/* Simple icon, but you can replace it with an SVG */}
+        ☰
       </button>
 
       {/* Navigation Links */}
@@ -39,6 +40,7 @@ const Nav: FC<NavProps> = ({ themeStyles, routes }) => {
               </NavLink>
             </li>
           ))}
+          <CartIcon themeStyles={themeStyles} />
       </ul>
     </nav>
   );
