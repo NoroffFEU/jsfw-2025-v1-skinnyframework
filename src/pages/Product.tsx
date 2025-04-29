@@ -1,6 +1,8 @@
 import { FC, useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import { getProductById, ProductProps as ProductType } from '../services/api';
+import { useCart } from '../context/CartContext';
+import { useToast } from '../context/ToastContext';
 
 interface ProductProps {
   themeStyles: { [key: string]: string };
@@ -11,6 +13,8 @@ const Product: FC<ProductProps> = ({ themeStyles }) => {
   const [product, setProduct] = useState<ProductType | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
+  const { addToCart } = useCart();
+  const { addToast } = useToast();
 
   useEffect(() => {
     async function fetchProduct() {
@@ -29,6 +33,13 @@ const Product: FC<ProductProps> = ({ themeStyles }) => {
     fetchProduct();
   }, [id]);
 
+  const handleAddToCart = () => {
+    if (product) {
+      addToCart(product);
+      addToast('Product added to cart!', 'success');
+    }
+  };
+
   if (loading) {
     return <div className={themeStyles.text}>Loading product...</div>;
   }
@@ -41,7 +52,6 @@ const Product: FC<ProductProps> = ({ themeStyles }) => {
     return <div className={themeStyles.text}>Product not found.</div>;
   }
 
-  // Compute discount percentage if applicable
   const isDiscounted = product.discountedPrice < product.price;
   const discountPercentage = isDiscounted
     ? Math.round(100 - (product.discountedPrice / product.price) * 100)
@@ -52,7 +62,7 @@ const Product: FC<ProductProps> = ({ themeStyles }) => {
       <h1 className={themeStyles.heading}>{product.title}</h1>
       <img
         src={product.image.url}
-        alt={(product.image.alt !== '' && product.image.alt) ? product.image.alt : product.title}
+        alt={product.image.alt || product.title}
         className={themeStyles.image}
       />
       <p>{product.description}</p>
@@ -78,7 +88,9 @@ const Product: FC<ProductProps> = ({ themeStyles }) => {
           ))}
         </div>
       )}
-      <button className={themeStyles.button}>Buy this thing</button>
+      <button className={themeStyles.button} onClick={handleAddToCart}>
+        Add to Cart
+      </button>
     </div>
   );
 };
