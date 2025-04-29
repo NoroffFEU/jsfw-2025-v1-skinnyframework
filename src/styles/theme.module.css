@@ -143,6 +143,7 @@
 
 .navList {
   display: flex;
+  align-items: center;
   gap: 2rem;
   list-style: none;
 }
@@ -168,6 +169,18 @@
   background-color: var(--primary);
   color: var(--button-text);
   border: 2px solid var(--primary);
+}
+
+.cartIcon {
+  cursor: pointer;
+  border: 2px solid transparent;
+  border-radius: var(--button-rad);
+  transition: border-color 0.3s ease-in-out;
+  padding: 0.5rem;
+
+  &:hover {
+    border-color: var(--accent);
+  }
 }
 
 /* Hamburger Menu */
