@@ -13,7 +13,7 @@ const Home: React.FC<PageProps> = ({ themeStyles }) => {
       try {
         const fetchedProducts = await getProducts();
         setProducts(fetchedProducts);
-        console.log('Products:', fetchedProducts); // Log to verify API response
+        // console.log('Products:', fetchedProducts); // Log to verify API response
       } catch (err: any) {
         console.error('Error fetching products:', err);
         setError('Failed to load products. Please try again later.');
@@ -44,7 +44,7 @@ const Home: React.FC<PageProps> = ({ themeStyles }) => {
           <div key={product.id} className={themeStyles.card}>
             <Link to={`/product/${product.id}`}>
               <img
-                src={product.image.url}  // using product.image.url now!
+                src={product.image.url}
                 alt={product.title}
                 className={themeStyles.image}
               />

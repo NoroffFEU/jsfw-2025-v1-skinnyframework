@@ -41,7 +41,7 @@ interface ProductsResponse {
 // The response for fetching a single product
 interface SingleProductResponse {
   data: Product;
-  meta: unknown; 
+  meta: unknown;
 }
 
 // A utility function to fetch data from our API endpoint and handle errors.
@@ -65,8 +65,8 @@ export async function getProductById(id: string): Promise<Product> {
   return json.data;
 }
 
-// For testing purposes, you might log products to the console.
-// (You can remove or comment this out later.)
+// Testing function to log products to the console
+// This is just for testing purposes to see if the API call works correctly.
 async function logProducts() {
   try {
     const products = await getProducts();
@@ -76,4 +76,4 @@ async function logProducts() {
   }
 }
 
-logProducts();
+// logProducts();
