@@ -1,5 +1,7 @@
 ### **Project Objectives**
 
+## **due date** - 18/5
+
 - Build an e-commerce store with React using the API endpoint: [https://v2.api.noroff.dev/online-shop](https://v2.api.noroff.dev/online-shop).
 - Create and style pages: Homepage, Product Details, Cart, Checkout Success, and Contact.
 - Implement essential features:
