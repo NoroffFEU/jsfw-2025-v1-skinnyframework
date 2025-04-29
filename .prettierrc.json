@@ -14,5 +14,7 @@
   "endOfLine": "lf",
   "htmlWhitespaceSensitivity": "ignore",
   "proseWrap": "preserve",
-  "embeddedLanguageFormatting": "auto"
+  "embeddedLanguageFormatting": "auto",
+  "objectCurlySpacing": true,
+  "propertySameLine": true
 }
