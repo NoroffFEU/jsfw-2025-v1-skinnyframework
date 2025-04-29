@@ -26,6 +26,7 @@ export interface PageProps {
 export interface RouteProps {
   path: string;
   element: React.ReactNode;
+  showInNav: boolean; 
 }
 
 /**

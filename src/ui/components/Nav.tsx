@@ -25,7 +25,7 @@ const Nav: FC<NavProps> = ({ themeStyles, routes }) => {
         className={`${themeStyles.navList} ${menuOpen ? themeStyles.navOpen : ''}`}
       >
         {routes
-          .filter(({ path }) => path !== '*') // Exclude the error route
+          .filter(({ showInNav }) => showInNav)
           .map(({ path, element }) => (
             <li key={path}>
               <NavLink
