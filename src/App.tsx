@@ -12,12 +12,12 @@ import { FC } from 'react';
 import { PageProps } from 'types/props';
 
 const routes = [
-  { path: '/', element: <Home themeStyles={themeStyles} /> }, // Home page
-  { path: '/product/:id', element: <Product themeStyles={themeStyles} /> }, // Product page
-  { path: '/cart', element: <Cart themeStyles={themeStyles} /> }, // Cart page
-  { path: '/checkout', element: <Checkout themeStyles={themeStyles} /> }, // Checkout page
-  { path: '/contact', element: <Contact themeStyles={themeStyles} /> }, // Contact page
-  { path: '*', element: <ErrorPage themeStyles={themeStyles} /> }, // Catch-all route for 404
+  { path: '/', element: <Home themeStyles={themeStyles} />, showInNav: true, }, // Home page
+  { path: '/product/:id', element: <Product themeStyles={themeStyles} />, showInNav: false }, // Product page
+  { path: '/cart', element: <Cart themeStyles={themeStyles} />, showInNav: true, }, // Cart page
+  { path: '/checkout', element: <Checkout themeStyles={themeStyles} />, showInNav: true, }, // Checkout page
+  { path: '/contact', element: <Contact themeStyles={themeStyles} />, showInNav: true }, // Contact page
+  { path: '*', element: <ErrorPage themeStyles={themeStyles} />, showInNav: false }, // Catch-all route for 404
 ];
 
 const App: FC<PageProps> = ({themeStyles}) => {
