@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router';
 import { PageProps } from '../types/props';
-import { getProducts, Product } from '../services/api';
+import { getProducts, ProductProps } from '../services/api';
 
 const Home: React.FC<PageProps> = ({ themeStyles }) => {
-  const [products, setProducts] = useState<Product[]>([]);
+  const [products, setProducts] = useState<ProductProps[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 

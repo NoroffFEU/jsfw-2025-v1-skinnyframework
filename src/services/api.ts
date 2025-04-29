@@ -1,32 +1,32 @@
 const API_URL = 'https://v2.api.noroff.dev/online-shop';
 
-interface Image {
+interface ImageProps {
   url: string;
   alt: string;
 }
 
-interface Review {
+interface ReviewProps {
   id: string;
   username: string;
   rating: number;
   description: string;
 }
 
-export interface Product {
+export interface ProductProps {
   id: string;
   title: string;
   description: string;
   price: number;
   discountedPrice: number;
-  image: Image;
+  image: ImageProps;
   rating: number;
   tags: string[];
-  reviews: Review[];
+  reviews: ReviewProps[];
 }
 
 // The response for fetching all products
 interface ProductsResponse {
-  data: Product[];
+  data: ProductProps[];
   meta: {
     isFirstPage: boolean;
     isLastPage: boolean;
@@ -40,7 +40,7 @@ interface ProductsResponse {
 
 // The response for fetching a single product
 interface SingleProductResponse {
-  data: Product;
+  data: ProductProps;
   meta: unknown;
 }
 
@@ -54,13 +54,13 @@ async function fetchAPI(endpoint: string): Promise<any> {
 }
 
 // Fetch all products
-export async function getProducts(): Promise<Product[]> {
+export async function getProducts(): Promise<ProductProps[]> {
   const json: ProductsResponse = await fetchAPI('/');
   return json.data;
 }
 
 // Fetch a single product by ID
-export async function getProductById(id: string): Promise<Product> {
+export async function getProductById(id: string): Promise<ProductProps> {
   const json: SingleProductResponse = await fetchAPI(`/${id}`);
   return json.data;
 }

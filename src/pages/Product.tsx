@@ -1,6 +1,6 @@
 import { FC, useEffect, useState } from 'react';
 import { useParams } from 'react-router';
-import { getProductById, Product as ProductType } from '../services/api';
+import { getProductById, ProductProps as ProductType } from '../services/api';
 
 interface ProductProps {
   themeStyles: { [key: string]: string };
