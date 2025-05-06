@@ -1,10 +1,4 @@
-import {
-    createContext,
-    useContext,
-    useState,
-    ReactNode,
-    FC,
-} from 'react';
+import { createContext, useContext, useState, ReactNode, FC } from 'react';
 
 export type ToastType = {
     id: number;
@@ -39,7 +33,7 @@ export const ToastProvider: FC<{ children: ReactNode }> = ({ children }) => {
     return (
         <ToastContext.Provider value={{ toasts, addToast, removeToast }}>
             {children}
-            <ToastContainer toasts={toasts} />
+            <ToastContainer toasts={toasts} removeToast={removeToast} />
         </ToastContext.Provider>
     );
 };
@@ -52,7 +46,12 @@ export const useToast = () => {
     return context;
 };
 
-const ToastContainer: FC<{ toasts: ToastType[] }> = ({ toasts }) => {
+interface ToastContainerProps {
+    toasts: ToastType[];
+    removeToast: (id: number) => void;
+}
+
+const ToastContainer: FC<ToastContainerProps> = ({ toasts, removeToast }) => {
     return (
         <div
             style={{
@@ -65,6 +64,7 @@ const ToastContainer: FC<{ toasts: ToastType[] }> = ({ toasts }) => {
             {toasts.map((toast) => (
                 <div
                     key={toast.id}
+                    onClick={() => removeToast(toast.id)} // Dismiss toast on click
                     style={{
                         background: '#333',
                         color: '#fff',
@@ -72,6 +72,7 @@ const ToastContainer: FC<{ toasts: ToastType[] }> = ({ toasts }) => {
                         margin: '5px 0',
                         borderRadius: '5px',
                         minWidth: '200px',
+                        cursor: 'pointer', // Visual cue that it's clickable
                     }}
                 >
                     {toast.message}
