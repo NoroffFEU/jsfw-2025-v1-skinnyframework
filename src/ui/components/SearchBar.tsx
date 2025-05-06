@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 
-interface SearchBarProps {
-  onSearch?: (searchTerm: string) => void;
+interface SearchBarProps {  onSearch?: (searchTerm: string) => void;
 }
 
 const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
@@ -16,12 +15,16 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
   };
 
   return (
-    <div style={{ display: 'flex', alignItems: 'center' }} className="search-bar">
+    <div
+      style={{ display: 'flex', alignItems: 'center' }}
+      className="search-bar"
+    >
       <input
         type="text"
         value={searchTerm}
         onChange={handleChange}
         placeholder="Search products..."
+        aria-label="Search products"
         style={{
           padding: '5px 10px',
           borderRadius: '4px',

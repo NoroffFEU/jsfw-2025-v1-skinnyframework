@@ -2,6 +2,7 @@ import React, { useState, FC } from 'react';
 import { NavLink } from 'react-router';
 import { ThemeStyles, RouteProps } from 'types/props';
 import CartIcon from './CartIcon';
+import SearchBar from './SearchBar';
 
 interface NavProps {
   themeStyles: ThemeStyles;
@@ -25,6 +26,7 @@ const Nav: FC<NavProps> = ({ themeStyles, routes }) => {
       <ul
         className={`${themeStyles.navList} ${menuOpen ? themeStyles.navOpen : ''}`}
       >
+        <SearchBar />
         {routes
           .filter(({ showInNav }) => showInNav)
           .map(({ path, element }) => (
