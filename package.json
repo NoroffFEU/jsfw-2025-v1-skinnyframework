@@ -14,10 +14,10 @@
   },
   "lint-staged": {
     "*.{js, jsx, ts, tsx}": [
-      "prettier --write",
+      "prettier --write .",
       "eslint --cache --fix"
     ],
-    "*.{json,css,md}": "prettier --write"
+    "*.{json,css,md}": "prettier --write ."
   },
   "dependencies": {
     "react": "^19.1.0",
