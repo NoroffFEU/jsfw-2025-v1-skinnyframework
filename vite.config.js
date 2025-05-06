@@ -9,4 +9,8 @@ export default defineConfig({
       '@utils': '/src/ui/components',
     },
   },
+  test: {
+    globals: true,
+    environment: 'jsdom',
+  },
 });
