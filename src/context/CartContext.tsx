@@ -61,7 +61,11 @@ export const CartProvider: FC<{ children: ReactNode }> = ({ children }) => {
     setCart(prev =>
       prev.map(item => (item.id === productId ? { ...item, quantity } : item)),
     );
-    addToast('Item quantity updated.', 'success');
+
+    const cartItem = cart.find(item => item.id === productId)
+    if (!cartItem) return;
+    const isIncreasing = quantity > cartItem.quantity;
+    addToast(isIncreasing ? 'Item quantity increased.' : 'Item quantity reduced.', 'success');
   };
 
   const clearCart = () => {
