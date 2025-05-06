@@ -11,7 +11,7 @@ const routes = [
   { path: '/', element: <Home themeStyles={themeStyles} />, showInNav: true }, // Home page
   {
     path: '/contact',
-    element: <Contact themeStyles={themeStyles} />,    showInNav: true,
+    element: <Contact themeStyles={themeStyles} />, showInNav: true,
   }, // Contact page
   {
     path: '/checkout',
