@@ -256,6 +256,12 @@
   color: var(--accent);
 }
 
+.footer .socials {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
 /* ========================= */
 /* TYPOGRAPHY */
 /* ========================= */
@@ -264,6 +270,7 @@
   font-family: var(--font-heading);
   font-weight: 700;
   color: var(--text);
+  margin-left: 10vw;
 }
 
 /* ========================= */
@@ -274,14 +281,17 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 1rem;
+  padding-block: 1rem;
+  max-width: 80vw;
+  justify-self: center;
 }
 
 .card {
-  border: 1px solid #ccc;
+  border: 2px solid #ccc;
   border-radius: 8px;
-  padding: 1rem;
   background: var(--sections);
   text-align: center;
+  padding: 1rem;
 }
 
 .image {
@@ -289,6 +299,7 @@
   height: 150px;
   object-fit: cover;
   border-radius: 4px;
+  margin-inline: auto;
 }
 
 .discount {
