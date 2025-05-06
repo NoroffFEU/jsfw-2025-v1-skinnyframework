@@ -15,9 +15,9 @@
   "lint-staged": {
     "*.{js, jsx, ts, tsx}": [
       "eslint --cache --fix",
-      "prettier --write ."
+      "prettier --write"
     ],
-    "*.{json,css,md}": "prettier --write ."
+    "*.{json,css,md}": "prettier --write"
   },
   "dependencies": {
     "react": "^19.1.0",
