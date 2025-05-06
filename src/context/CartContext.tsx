@@ -1,14 +1,14 @@
-import {
+import React, {
   createContext,
   useContext,
   useState,
-  useEffect,
   ReactNode,
   FC,
 } from 'react';
-import { ProductProps } from '../services/api';
-import { useToast } from './ToastContext';
+import { ProductProps } from '../types/props';
+import { useToast } from '../context/ToastContext';
 
+// Ensure that CartItem exactly extends ProductProps with a quantity property.
 export interface CartItem extends ProductProps {
   quantity: number;
 }
@@ -24,50 +24,35 @@ interface CartContextType {
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
 export const CartProvider: FC<{ children: ReactNode }> = ({ children }) => {
-  const [cart, setCart] = useState<CartItem[]>(() => {
-    const storedCart = localStorage.getItem('cart');
-    return storedCart ? JSON.parse(storedCart) : []; // if there are cartitems stored in LS apply those
-  });
-
+  const [cart, setCart] = useState<CartItem[]>([]);
   const { addToast } = useToast();
 
-  // Save cart to localStorage whenever it changes
-  useEffect(() => {
-    localStorage.setItem('cart', JSON.stringify(cart));
-  }, [cart]);
-
   const addToCart = (product: ProductProps) => {
-    setCart(prev => {
-      const existing = prev.find(item => item.id === product.id);
+    setCart(prevCart => {
+      const existing = prevCart.find(item => item.id === product.id);
       if (existing) {
-        return prev.map(item =>
+        return prevCart.map(item =>
           item.id === product.id
             ? { ...item, quantity: item.quantity + 1 }
             : item,
         );
       } else {
-        return [...prev, { ...product, quantity: 1 }];
+        return [...prevCart, { ...product, quantity: 1 }];
       }
     });
     addToast('Product added to cart!', 'success');
   };
 
   const removeFromCart = (productId: string) => {
-    setCart(prev => prev.filter(item => item.id !== productId));
+    setCart(prevCart => prevCart.filter(item => item.id !== productId));
     addToast("What, you didn't want it?", 'success');
   };
 
   const updateQuantity = (productId: string, quantity: number) => {
-    setCart(prev =>
-      prev.map(item => (item.id === productId ? { ...item, quantity } : item)),
-    );
-
-    const cartItem = cart.find(item => item.id === productId);
-    if (!cartItem) return;
-    const isIncreasing = quantity > cartItem.quantity;
-    addToast(
-      isIncreasing ? 'Item quantity increased.' : 'Item quantity reduced.',
-      'success',
+    setCart(prevCart =>
+      prevCart.map(item =>
+        item.id === productId ? { ...item, quantity } : item,
+      ),
     );
   };
 
@@ -85,7 +70,7 @@ export const CartProvider: FC<{ children: ReactNode }> = ({ children }) => {
   );
 };
 
-export const useCart = () => {
+export const useCart = (): CartContextType => {
   const context = useContext(CartContext);
   if (!context) {
     throw new Error('useCart must be used within a CartProvider');
