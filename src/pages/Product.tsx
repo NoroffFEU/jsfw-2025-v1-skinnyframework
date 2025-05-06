@@ -2,7 +2,6 @@ import { FC, useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import { getProductById, ProductProps as ProductType } from '../services/api';
 import { useCart } from '../context/CartContext';
-import { useToast } from '../context/ToastContext';
 
 interface ProductProps {
   themeStyles: { [key: string]: string };
@@ -14,7 +13,7 @@ const Product: FC<ProductProps> = ({ themeStyles }) => {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
   const { addToCart } = useCart();
-  const { addToast } = useToast();
+  
 
   useEffect(() => {
     async function fetchProduct() {
@@ -36,7 +35,7 @@ const Product: FC<ProductProps> = ({ themeStyles }) => {
   const handleAddToCart = () => {
     if (product) {
       addToCart(product);
-      addToast('Product added to cart!', 'success');
+      
     }
   };
 

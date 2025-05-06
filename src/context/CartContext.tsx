@@ -7,6 +7,7 @@ import {
   FC,
 } from 'react';
 import { ProductProps } from '../services/api';
+import { useToast } from './ToastContext';
 
 export interface CartItem extends ProductProps {
   quantity: number;
@@ -25,8 +26,10 @@ const CartContext = createContext<CartContextType | undefined>(undefined);
 export const CartProvider: FC<{ children: ReactNode }> = ({ children }) => {
   const [cart, setCart] = useState<CartItem[]>(() => {
     const storedCart = localStorage.getItem('cart');
-    return storedCart ? JSON.parse(storedCart) : []; // if there are items in the cart, use those
+    return storedCart ? JSON.parse(storedCart) : []; // if there are cartitems stored in LS apply those
   });
+
+  const { addToast } = useToast();
 
   // Save cart to localStorage whenever it changes
   useEffect(() => {
@@ -46,20 +49,24 @@ export const CartProvider: FC<{ children: ReactNode }> = ({ children }) => {
         return [...prev, { ...product, quantity: 1 }];
       }
     });
+    addToast('Product added to cart!', 'success');
   };
 
   const removeFromCart = (productId: string) => {
     setCart(prev => prev.filter(item => item.id !== productId));
+    addToast('What, you didn\'t want it?', 'success');
   };
 
   const updateQuantity = (productId: string, quantity: number) => {
     setCart(prev =>
       prev.map(item => (item.id === productId ? { ...item, quantity } : item)),
     );
+    addToast('Item quantity updated.', 'success');
   };
 
   const clearCart = () => {
     setCart([]);
+    addToast('Nada in the cart!', 'success');
   };
 
   return (
