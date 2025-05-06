@@ -5,6 +5,7 @@ import { CartProvider, useCart } from '../context/CartContext';
 import Cart from '../pages/Cart';
 import { test, expect } from 'vitest';
 import '@testing-library/jest-dom';
+import { act } from 'react';
 
 // Fake cart item
 const fakeItem = {
@@ -30,7 +31,10 @@ test('updates item quantity and removes item with toast notifications', async ()
   });
 
   // Add item to cart using the context hook from renderHook
-  result.current.addToCart(fakeItem);
+  act(() => {
+      return result.current.addToCart(fakeItem);
+
+  })
 
   // Render the cart UI after modifying cart state
   render(
@@ -47,13 +51,18 @@ test('updates item quantity and removes item with toast notifications', async ()
   await waitFor(() => expect(screen.getByText('Fake Product')).toBeInTheDocument());
 
   // Click the "+" button to increase quantity
-  fireEvent.click(screen.getByText('+'));
+  act(() => {
+    fireEvent.click(screen.getByText('+'));
+  })
 
   // Check for the "Item quantity increased!" toast
   expect(await screen.findByText(/item quantity increased!/i)).toBeInTheDocument();
 
   // Click the "Remove" button
-  fireEvent.click(screen.getByText(/remove/i));
+  act(() => {
+      fireEvent.click(screen.getByText(/remove/i));
+
+  })
 
   // Check for the "Item removed from cart." toast
   expect(await screen.findByText(/item removed from cart./i)).toBeInTheDocument();
