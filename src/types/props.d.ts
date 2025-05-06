@@ -1,5 +1,5 @@
 /**
- * Represents a collection of theme styles where the key is a string 
+ * Represents a collection of theme styles where the key is a string
  * (e.g., a CSS property or class name) and the value is the corresponding style value.
  */
 export interface ThemeStyles {
@@ -26,7 +26,7 @@ export interface PageProps {
 export interface RouteProps {
   path: string;
   element: React.ReactNode;
-  showInNav: boolean; 
+  showInNav: boolean;
 }
 
 /**
@@ -58,7 +58,7 @@ export interface LayoutProps {
  *
  * @interface WrapperProps
  * @property {React.ReactNode} children - The nested components or elements to render inside the wrapper.
- * @property {{ [key: string]: string }} themeStyles - A collection of theme styles where the key is a string 
+ * @property {{ [key: string]: string }} themeStyles - A collection of theme styles where the key is a string
  * (e.g., a CSS property or class name) and the value is the corresponding style value.
  */
 export interface WrapperProps {

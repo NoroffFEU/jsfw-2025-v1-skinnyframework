@@ -40,7 +40,7 @@ const Home: React.FC<PageProps> = ({ themeStyles }) => {
     <div className={themeStyles.pageBody}>
       <h1 className={themeStyles.heading}>Products</h1>
       <div className={themeStyles.grid}>
-        {products.map((product) => (
+        {products.map(product => (
           <div key={product.id} className={themeStyles.card}>
             <Link to={`/product/${product.id}`}>
               <img
@@ -49,7 +49,9 @@ const Home: React.FC<PageProps> = ({ themeStyles }) => {
                 className={themeStyles.image}
               />
               <h2 className={themeStyles.text}>{product.title}</h2>
-              <p className={themeStyles.text}>Price: ${product.price.toFixed(2)}</p>
+              <p className={themeStyles.text}>
+                Price: ${product.price.toFixed(2)}
+              </p>
               {product.discountedPrice < product.price && (
                 <p className={themeStyles.discount}>
                   Discounted: ${product.discountedPrice.toFixed(2)}
@@ -61,6 +63,6 @@ const Home: React.FC<PageProps> = ({ themeStyles }) => {
       </div>
     </div>
   );
-}
+};
 
 export default Home;

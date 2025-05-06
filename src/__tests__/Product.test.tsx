@@ -47,12 +47,12 @@ test('adds product to cart and persists it in localStorage', async () => {
           </Routes>
         </CartProvider>
       </ToastProvider>
-    </MemoryRouter>
+    </MemoryRouter>,
   );
 
   // Wait for the product title to appear (ensuring API fetch is complete)
   await waitFor(() =>
-    expect(screen.getByText('Fake Product')).toBeInTheDocument()
+    expect(screen.getByText('Fake Product')).toBeInTheDocument(),
   );
 
   // Click the "Add to Cart" button
@@ -61,7 +61,7 @@ test('adds product to cart and persists it in localStorage', async () => {
 
   // Check for the toast notification
   expect(
-    await screen.findByText(/product added to cart!/i)
+    await screen.findByText(/product added to cart!/i),
   ).toBeInTheDocument();
 
   // Verify that the cart persisted in localStorage

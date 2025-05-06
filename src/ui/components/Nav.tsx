@@ -36,11 +36,14 @@ const Nav: FC<NavProps> = ({ themeStyles, routes }) => {
                 }
                 onClick={() => setMenuOpen(false)} // Close menu after clicking a link
               >
-                {React.isValidElement(element) && typeof element.type === 'function' ? element.type.name : ''}
+                {React.isValidElement(element) &&
+                typeof element.type === 'function'
+                  ? element.type.name
+                  : ''}
               </NavLink>
             </li>
           ))}
-          <CartIcon themeStyles={themeStyles} />
+        <CartIcon themeStyles={themeStyles} />
       </ul>
     </nav>
   );

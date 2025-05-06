@@ -11,7 +11,7 @@ const CartIcon: FC<CartIconProps> = ({ themeStyles }) => {
 
   return (
     <div className={themeStyles.cartIcon}>
-      <a href='/cart'>🛒</a>
+      <a href="/cart">🛒</a>
       {itemCount > 0 && <span> {itemCount}</span>}
     </div>
   );

@@ -78,7 +78,7 @@ const Product: FC<ProductProps> = ({ themeStyles }) => {
       {product.reviews && product.reviews.length > 0 && (
         <div>
           <h3>Reviews:</h3>
-          {product.reviews.map((review) => (
+          {product.reviews.map(review => (
             <div key={review.id}>
               <p>
                 {review.username} - {review.rating}/5

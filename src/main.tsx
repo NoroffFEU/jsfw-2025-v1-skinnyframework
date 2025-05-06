@@ -49,9 +49,11 @@ try {
   // If all is well, initialize the app.
   createRoot(root).render(
     <StrictMode>
-      <ToastProvider><CartProvider>
-        <App themeStyles={themeStyles} />
-      </CartProvider></ToastProvider>
+      <ToastProvider>
+        <CartProvider>
+          <App themeStyles={themeStyles} />
+        </CartProvider>
+      </ToastProvider>
     </StrictMode>,
   );
 } catch (error: unknown) {
@@ -59,13 +61,11 @@ try {
   if (error instanceof Error) {
     displayFallbackUI({ error, themeStyles });
   } else {
-    displayFallbackUI(
-      {
-        error: new Error(
-          'An unknown error occurred while initializing the app. We have fired the person responsible.',
-        ),
-        themeStyles,
-      },
-    );
+    displayFallbackUI({
+      error: new Error(
+        'An unknown error occurred while initializing the app. We have fired the person responsible.',
+      ),
+      themeStyles,
+    });
   }
 }

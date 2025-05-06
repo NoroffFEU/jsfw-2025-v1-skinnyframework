@@ -22,6 +22,6 @@ const App: FC<PageProps> = ({ themeStyles }) => {
       </Routes>
     </BrowserRouter>
   );
-}
+};
 
 export default App;

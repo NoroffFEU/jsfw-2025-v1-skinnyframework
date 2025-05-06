@@ -3,7 +3,6 @@ import Footer from './components/Footer';
 import { FC } from 'react';
 import { LayoutProps } from '../types/props';
 
-
 const Layout: FC<LayoutProps> = ({ children, themeStyles, routes }) => {
   return (
     <>
