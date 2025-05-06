@@ -3,10 +3,7 @@ import { createRoot } from 'react-dom/client';
 import themeStyles from './styles/theme.module.css';
 import App from './App';
 import './index.css';
-import { ToastProvider } from './context/ToastContext';
-import { CartProvider } from './context/CartContext';
-import { ProductProvider } from './context/ProductContext';
-import { SearchProvider } from './context/SearchContext';
+import ContextProvider from 'context/ContextProvider';
 
 const root = document.getElementById('root');
 
@@ -51,15 +48,9 @@ try {
   // If all is well, initialize the app.
   createRoot(root).render(
     <StrictMode>
-      <ProductProvider>
-        <SearchProvider>
-          <ToastProvider>
-            <CartProvider>
-              <App themeStyles={themeStyles} />
-            </CartProvider>
-          </ToastProvider>
-        </SearchProvider>
-      </ProductProvider>
+      <ContextProvider>
+        <App themeStyles={themeStyles} />
+      </ContextProvider>
     </StrictMode>,
   );
 } catch (error: unknown) {
