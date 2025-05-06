@@ -1,66 +1,56 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router';
-import { PageProps } from '../types/props';
-import { getProducts, ProductProps } from '../services/api';
+import { useNavigate } from 'react-router';
+import { ProductProps } from '../types/props';
+import ProductCard from '../ui/components/ProductCard'; // Ensure you have a corresponding ProductCard component
+import { useProducts } from '../context/ProductContext';
+import { useSearch } from '../context/SearchContext';
 
-const Home: React.FC<PageProps> = ({ themeStyles }) => {
-  const [products, setProducts] = useState<ProductProps[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+const Home = () => {
+  const { products, loading, error } = useProducts();
+  const { searchTerm } = useSearch();
+  const [filteredProducts, setFilteredProducts] =
+    useState<ProductProps[]>(products);
+  const navigate = useNavigate();
 
   useEffect(() => {
-    async function fetchProducts() {
-      try {
-        const fetchedProducts = await getProducts();
-        setProducts(fetchedProducts);
-        // console.log('Products:', fetchedProducts); // Log to verify API response
-      } catch (err: any) {
-        console.error('Error fetching products:', err);
-        setError('Failed to load products. Please try again later.');
-      } finally {
-        setLoading(false);
-      }
+    // If there's no search term, display all products
+    if (!searchTerm.trim()) {
+      setFilteredProducts(products);
+      return;
     }
-    fetchProducts();
-  }, []);
 
-  if (loading) {
-    return <div className={themeStyles.text}>Loading products...</div>;
-  }
+    const matches = products.filter(product =>
+      product.title.toLowerCase().includes(searchTerm.toLowerCase()),
+    );
+    setFilteredProducts(matches);
 
-  if (error) {
-    return <div className={themeStyles.text}>{error}</div>;
-  }
+    // If exactly one match, automatically navigate to the product page
+    if (matches.length === 1) {
+      navigate(`/product/${matches[0].id}`);
+    }
+  }, [searchTerm, products, navigate]);
 
-  if (products.length === 0) {
-    return <div className={themeStyles.text}>No products available.</div>;
-  }
+  if (loading) return <p>Loading products...</p>;
+  if (error) return <p>Error: {error}</p>;
 
   return (
-    <div className={themeStyles.pageBody}>
-      <h1 className={themeStyles.heading}>Products</h1>
-      <div className={themeStyles.grid}>
-        {products.map(product => (
-          <div key={product.id} className={themeStyles.card}>
-            <Link to={`/product/${product.id}`}>
-              <img
-                src={product.image.url}
-                alt={product.title}
-                className={themeStyles.image}
-              />
-              <h2 className={themeStyles.text}>{product.title}</h2>
-              <p className={themeStyles.text}>
-                Price: ${product.price.toFixed(2)}
-              </p>
-              {product.discountedPrice < product.price && (
-                <p className={themeStyles.discount}>
-                  Discounted: ${product.discountedPrice.toFixed(2)}
-                </p>
-              )}
-            </Link>
-          </div>
-        ))}
-      </div>
+    <div>
+      <h1>Products</h1>
+      {filteredProducts.length === 0 ? (
+        <p>No products found.</p>
+      ) : (
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+            gap: '1rem',
+          }}
+        >
+          {filteredProducts.map(product => (
+            <ProductCard key={product.id} product={product} />
+          ))}
+        </div>
+      )}
     </div>
   );
 };
