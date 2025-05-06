@@ -16,15 +16,10 @@ interface CartContextType {
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
 export const CartProvider: FC<{ children: ReactNode }> = ({ children }) => {
-  const [cart, setCart] = useState<CartItem[]>([]);
-
-  // Load saved cart from localStorage on mount
-  useEffect(() => {
+  const [cart, setCart] = useState<CartItem[]>(() => {
     const storedCart = localStorage.getItem('cart');
-    if (storedCart) {
-      setCart(JSON.parse(storedCart));
-    }
-  }, []);
+    return storedCart ? JSON.parse(storedCart) : []; // if there are items in the cart, use those
+  })
 
   // Save cart to localStorage whenever it changes
   useEffect(() => {
