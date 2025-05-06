@@ -1,4 +1,10 @@
-import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import {
+  createContext,
+  useContext,
+  useState,
+  useEffect,
+  ReactNode,
+} from 'react';
 import { ProductProps } from '../types/props';
 
 interface ProductContextType {
@@ -17,7 +23,7 @@ export const ProductProvider = ({ children }: { children: ReactNode }) => {
   useEffect(() => {
     // Fetch products from the Noroff API
     fetch('https://v2.api.noroff.dev/online-shop')
-      .then((res) => {
+      .then(res => {
         if (!res.ok) {
           throw new Error('Failed to fetch products');
         }
@@ -27,7 +33,7 @@ export const ProductProvider = ({ children }: { children: ReactNode }) => {
         setProducts(data);
         setLoading(false);
       })
-      .catch((err) => {
+      .catch(err => {
         console.error('Product fetch error:', err);
         setError(err.message);
         setLoading(false);

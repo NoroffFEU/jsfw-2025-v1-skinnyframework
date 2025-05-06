@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
-interface SearchBarProps {  onSearch?: (searchTerm: string) => void;
+interface SearchBarProps {
+  onSearch?: (searchTerm: string) => void;
 }
 
 const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
