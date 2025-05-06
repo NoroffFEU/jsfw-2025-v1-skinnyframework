@@ -13,7 +13,6 @@ const Product: FC<ProductProps> = ({ themeStyles }) => {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
   const { addToCart } = useCart();
-  
 
   useEffect(() => {
     async function fetchProduct() {
@@ -35,7 +34,6 @@ const Product: FC<ProductProps> = ({ themeStyles }) => {
   const handleAddToCart = () => {
     if (product) {
       addToCart(product);
-      
     }
   };
 
