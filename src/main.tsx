@@ -3,7 +3,7 @@ import { createRoot } from 'react-dom/client';
 import themeStyles from './styles/theme.module.css';
 import App from './App';
 import './index.css';
-import ContextProvider from 'context/ContextProvider';
+import ContextProvider from './context/ContextProvider';
 
 const root = document.getElementById('root');
 

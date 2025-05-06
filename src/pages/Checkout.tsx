@@ -1,5 +1,3 @@
-// src/pages/Checkout.tsx
-
 import React from 'react';
 import { useNavigate } from 'react-router';
 import { useCart } from '../context/CartContext';
