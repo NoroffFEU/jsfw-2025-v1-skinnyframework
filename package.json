@@ -13,8 +13,8 @@
     "prepare": "husky install"
   },
   "lint-staged": {
-    "*.js": "eslint --cache --fix",
-    "*.{js,css,md}": "prettier --write"
+    "*.{js, jsx, ts, tsx}": "eslint --cache --fix",
+    "*.{json,css,md}": "prettier --write"
   },
   "dependencies": {
     "react": "^19.1.0",
