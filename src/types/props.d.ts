@@ -65,3 +65,21 @@ export interface WrapperProps {
   children: React.ReactNode;
   themeStyles: { [key: string]: string };
 }
+
+export interface ProductProps {
+  id: string;
+  title: string;
+  description: string;
+  price: number;
+  discountedPrice: number;
+  image: {
+    url: string;
+    alt: string;
+  };
+  reviews: {
+    rating: number;
+    comment: string;
+  }[];
+  rating: number;
+  tags: string[];
+}

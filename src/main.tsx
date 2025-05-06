@@ -5,6 +5,7 @@ import App from './App';
 import './index.css';
 import { ToastProvider } from './context/ToastContext';
 import { CartProvider } from './context/CartContext';
+import {ProductProvider} from './context/ProductContext';
 
 const root = document.getElementById('root');
 
@@ -49,11 +50,13 @@ try {
   // If all is well, initialize the app.
   createRoot(root).render(
     <StrictMode>
-      <ToastProvider>
-        <CartProvider>
-          <App themeStyles={themeStyles} />
-        </CartProvider>
-      </ToastProvider>
+      <ProductProvider>
+        <ToastProvider>
+          <CartProvider>
+            <App themeStyles={themeStyles} />
+          </CartProvider>
+        </ToastProvider>
+      </ProductProvider>
     </StrictMode>,
   );
 } catch (error: unknown) {
