@@ -10,7 +10,8 @@ import themeStyles from './styles/theme.module.css';
 const routes = [
   {
     path: '/',
-    element: <Home themeStyles={themeStyles} />,    showInNav: true,
+    element: <Home themeStyles={themeStyles} />,
+    showInNav: true,
   }, // Home page
   {
     path: '/contact',
