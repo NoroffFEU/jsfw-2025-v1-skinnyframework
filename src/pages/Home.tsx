@@ -5,7 +5,6 @@ import { ProductsContext } from '../context/ProductsContext';
 
 const Home: React.FC<PageProps> = ({ themeStyles }) => {
   const { products, loading, error } = useContext(ProductsContext);
-  const [searchQuery, setSearchQuery] = useState('');
 
   if (loading) {
     return <div className={themeStyles.text}>Loading products...</div>;
