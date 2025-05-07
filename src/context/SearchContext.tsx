@@ -7,7 +7,7 @@ interface SearchContextProps {
 
 export const SearchContext = createContext<SearchContextProps>({
   searchQuery: '',
-  setSearchQuery: () => { },
+  setSearchQuery: () => {},
 });
 
 interface SearchProviderProps {
@@ -22,4 +22,4 @@ export const SearchProvider: FC<SearchProviderProps> = ({ children }) => {
       {children}
     </SearchContext.Provider>
   );
-}
+};

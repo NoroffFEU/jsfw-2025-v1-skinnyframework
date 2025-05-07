@@ -53,7 +53,6 @@ try {
     <StrictMode>
       <ProductsProvider>
         <SearchProvider>
-
           <ToastProvider>
             <CartProvider>
               <App themeStyles={themeStyles} />

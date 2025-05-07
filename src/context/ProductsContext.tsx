@@ -1,9 +1,10 @@
-import React, {
+import {
   createContext,
   useState,
   useEffect,
   useMemo,
   ReactNode,
+  FC,
 } from 'react';
 import { getProducts, ProductProps } from '../services/api';
 
@@ -25,9 +26,7 @@ interface ProductsProviderProps {
   children: ReactNode;
 }
 
-export const ProductsProvider: React.FC<ProductsProviderProps> = ({
-  children,
-}) => {
+export const ProductsProvider: FC<ProductsProviderProps> = ({ children }) => {
   const [products, setProducts] = useState<ProductProps[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);

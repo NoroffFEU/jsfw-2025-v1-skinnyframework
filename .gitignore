@@ -24,5 +24,8 @@ dist-ssr
 *.sln
 *.sw?
 
+#mock product data for local testing
+src/services/mockProductData.ts
+
 # Personal notes
 checklist.md

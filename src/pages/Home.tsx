@@ -1,21 +1,21 @@
 // src/pages/Home.tsx
-import React, { useContext, useMemo } from 'react';
+import { useContext, useMemo, FC } from 'react';
 import { Link } from 'react-router';
 import { PageProps } from '../types/props';
 import { ProductsContext } from '../context/ProductsContext';
 import { SearchContext } from '../context/SearchContext';
 
-const Home: React.FC<PageProps> = ({ themeStyles }) => {
+const Home: FC<PageProps> = ({ themeStyles }) => {
   const { products, loading, error } = useContext(ProductsContext);
   const { searchQuery } = useContext(SearchContext);
 
   // Filter products using the global search query; useMemo prevents unnecessary recalculations.
   const filteredProducts = useMemo(
     () =>
-      products.filter((product) =>
-        product.title.toLowerCase().includes(searchQuery.toLowerCase())
+      products.filter(product =>
+        product.title.toLowerCase().includes(searchQuery.toLowerCase()),
       ),
-    [products, searchQuery]
+    [products, searchQuery],
   );
 
   if (loading) {
