@@ -1,28 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router';
 import { PageProps } from '../types/props';
-import { getProducts, ProductProps } from '../services/api';
+import { ProductsContext } from 'context/ProductsContext';
 
 const Home: React.FC<PageProps> = ({ themeStyles }) => {
-  const [products, setProducts] = useState<ProductProps[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-
-  useEffect(() => {
-    async function fetchProducts() {
-      try {
-        const fetchedProducts = await getProducts();
-        setProducts(fetchedProducts);
-        // console.log('Products:', fetchedProducts); // Log to verify API response
-      } catch (err: any) {
-        console.error('Error fetching products:', err);
-        setError('Failed to load products. Please try again later.');
-      } finally {
-        setLoading(false);
-      }
-    }
-    fetchProducts();
-  }, []);
+  const { products, loading, error } = useContext(ProductsContext);
+  const [searchQuery, setSearchQuery] = useState('');
 
   if (loading) {
     return <div className={themeStyles.text}>Loading products...</div>;
