@@ -1,4 +1,10 @@
-import React, { createContext, useState, useEffect, useMemo, ReactNode } from 'react';
+import React, {
+  createContext,
+  useState,
+  useEffect,
+  useMemo,
+  ReactNode,
+} from 'react';
 import { getProducts, ProductProps } from '../services/api';
 
 interface ProductsContextProps {
@@ -19,7 +25,9 @@ interface ProductsProviderProps {
   children: ReactNode;
 }
 
-export const ProductsProvider: React.FC<ProductsProviderProps> = ({ children }) => {
+export const ProductsProvider: React.FC<ProductsProviderProps> = ({
+  children,
+}) => {
   const [products, setProducts] = useState<ProductProps[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
@@ -49,8 +57,12 @@ export const ProductsProvider: React.FC<ProductsProviderProps> = ({ children }) 
       error,
       refetchProducts: fetchProducts,
     }),
-    [products, loading, error]
+    [products, loading, error],
   );
 
-  return <ProductsContext.Provider value={value}>{children}</ProductsContext.Provider>;
+  return (
+    <ProductsContext.Provider value={value}>
+      {children}
+    </ProductsContext.Provider>
+  );
 };
