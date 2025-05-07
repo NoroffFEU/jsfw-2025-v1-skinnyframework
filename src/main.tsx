@@ -5,7 +5,7 @@ import App from './App';
 import './index.css';
 import { ToastProvider } from './context/ToastContext';
 import { CartProvider } from './context/CartContext';
-import { ProductsProvider } from 'context/ProductsContext';
+import { ProductsProvider } from './context/ProductsContext';
 
 const root = document.getElementById('root');
 

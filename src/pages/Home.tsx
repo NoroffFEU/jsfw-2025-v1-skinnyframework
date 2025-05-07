@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router';
 import { PageProps } from '../types/props';
-import { ProductsContext } from 'context/ProductsContext';
+import { ProductsContext } from '../context/ProductsContext';
 
 const Home: React.FC<PageProps> = ({ themeStyles }) => {
   const { products, loading, error } = useContext(ProductsContext);
