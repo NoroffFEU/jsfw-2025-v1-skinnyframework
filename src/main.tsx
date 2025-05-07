@@ -6,6 +6,7 @@ import './index.css';
 import { ToastProvider } from './context/ToastContext';
 import { CartProvider } from './context/CartContext';
 import { ProductsProvider } from './context/ProductsContext';
+import { SearchProvider } from './context/SearchContext';
 
 const root = document.getElementById('root');
 
@@ -51,11 +52,14 @@ try {
   createRoot(root).render(
     <StrictMode>
       <ProductsProvider>
-        <ToastProvider>
-          <CartProvider>
-            <App themeStyles={themeStyles} />
-          </CartProvider>
-        </ToastProvider>
+        <SearchProvider>
+
+          <ToastProvider>
+            <CartProvider>
+              <App themeStyles={themeStyles} />
+            </CartProvider>
+          </ToastProvider>
+        </SearchProvider>
       </ProductsProvider>
     </StrictMode>,
   );

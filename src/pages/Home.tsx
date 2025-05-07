@@ -1,10 +1,22 @@
-import React, { useContext, useEffect, useState } from 'react';
+// src/pages/Home.tsx
+import React, { useContext, useMemo } from 'react';
 import { Link } from 'react-router';
 import { PageProps } from '../types/props';
 import { ProductsContext } from '../context/ProductsContext';
+import { SearchContext } from '../context/SearchContext';
 
 const Home: React.FC<PageProps> = ({ themeStyles }) => {
   const { products, loading, error } = useContext(ProductsContext);
+  const { searchQuery } = useContext(SearchContext);
+
+  // Filter products using the global search query; useMemo prevents unnecessary recalculations.
+  const filteredProducts = useMemo(
+    () =>
+      products.filter((product) =>
+        product.title.toLowerCase().includes(searchQuery.toLowerCase())
+      ),
+    [products, searchQuery]
+  );
 
   if (loading) {
     return <div className={themeStyles.text}>Loading products...</div>;
@@ -22,7 +34,7 @@ const Home: React.FC<PageProps> = ({ themeStyles }) => {
     <div className={themeStyles.pageBody}>
       <h1 className={themeStyles.heading}>Products</h1>
       <div className={themeStyles.grid}>
-        {products.map(product => (
+        {filteredProducts.map(product => (
           <div key={product.id} className={themeStyles.card}>
             <Link to={`/product/${product.id}`}>
               <img
@@ -43,6 +55,10 @@ const Home: React.FC<PageProps> = ({ themeStyles }) => {
           </div>
         ))}
       </div>
+
+      {filteredProducts.length === 0 && (
+        <div className={themeStyles.text}>No matching products found.</div>
+      )}
     </div>
   );
 };
