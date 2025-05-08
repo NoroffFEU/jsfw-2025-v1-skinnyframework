@@ -52,6 +52,18 @@ interface ToastContainerProps {
 }
 
 const ToastContainer: FC<ToastContainerProps> = ({ toasts, removeToast }) => {
+  const getBackgroundColor = (type?: ToastType['type']) => {
+    switch (type) {
+      case 'success':
+        return '#2d6a4f'; // Dark green
+      case 'error':
+        return '#d9480f'; // Dark orange
+      case 'info':
+      default:
+        return '#333'; // Gray
+    }
+  };
+
   return (
     <div
       style={{
@@ -66,7 +78,7 @@ const ToastContainer: FC<ToastContainerProps> = ({ toasts, removeToast }) => {
           key={toast.id}
           onClick={() => removeToast(toast.id)} // Dismiss toast on click
           style={{
-            background: '#333',
+            background: getBackgroundColor(toast.type),
             color: '#fff',
             padding: '10px 15px',
             margin: '5px 0',
