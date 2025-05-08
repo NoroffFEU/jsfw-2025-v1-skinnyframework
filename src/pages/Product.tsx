@@ -2,6 +2,7 @@ import { FC, useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import { getProductById, ProductProps as ProductType } from '../services/api';
 import { useCart } from '../context/CartContext';
+import Wrapper from '../ui/components/Wrapper';
 
 interface ProductProps {
   themeStyles: { [key: string]: string };
@@ -55,40 +56,42 @@ const Product: FC<ProductProps> = ({ themeStyles }) => {
     : 0;
 
   return (
-    <div className={themeStyles.pageBody}>
-      <h1 className={themeStyles.heading}>{product.title}</h1>
-      <img
-        src={product.image.url}
-        alt={product.image.alt || product.title}
-        className={themeStyles.image}
-      />
-      <p>{product.description}</p>
-      <p>Price: ${product.price.toFixed(2)}</p>
-      {isDiscounted && (
-        <div>
-          <p>
-            Discounted Price: ${product.discountedPrice.toFixed(2)} (
-            {discountPercentage}% off)
-          </p>
-        </div>
-      )}
-      {product.reviews && product.reviews.length > 0 && (
-        <div>
-          <h3>Reviews:</h3>
-          {product.reviews.map(review => (
-            <div key={review.id}>
-              <p>
-                {review.username} - {review.rating}/5
-              </p>
-              <p>{review.description}</p>
-            </div>
-          ))}
-        </div>
-      )}
-      <button className={themeStyles.button} onClick={handleAddToCart}>
-        Add to Cart
-      </button>
-    </div>
+    <Wrapper themeStyles={themeStyles}>
+      <div className={themeStyles.pageBody}>
+        <h1 className={themeStyles.heading}>{product.title}</h1>
+        <img
+          src={product.image.url}
+          alt={product.image.alt || product.title}
+          className={themeStyles.image}
+        />
+        <p>{product.description}</p>
+        <p>Price: ${product.price.toFixed(2)}</p>
+        {isDiscounted && (
+          <div>
+            <p>
+              Discounted Price: ${product.discountedPrice.toFixed(2)} (
+              {discountPercentage}% off)
+            </p>
+          </div>
+        )}
+        {product.reviews && product.reviews.length > 0 && (
+          <div>
+            <h3>Reviews:</h3>
+            {product.reviews.map(review => (
+              <div key={review.id}>
+                <p>
+                  {review.username} - {review.rating}/5
+                </p>
+                <p>{review.description}</p>
+              </div>
+            ))}
+          </div>
+        )}
+        <button className={themeStyles.button} onClick={handleAddToCart}>
+          Add to Cart
+        </button>
+      </div>
+    </Wrapper>
   );
 };
 

@@ -69,14 +69,14 @@ export async function getProducts(): Promise<ProductProps[]> {
 
 // Fetch a single product by ID
 export async function getProductById(id: string): Promise<ProductProps> {
-  let json: SingleProductResponse
-  let result
+  let json: SingleProductResponse;
+  let result;
   if (isOffline) {
-    const index = parseInt(id) - 1
-    result = mockData.data[index]
+    const index = parseInt(id) - 1;
+    result = mockData.data[index];
   } else {
     json = await fetchAPI(`/${id}`);
-    result = json.data
+    result = json.data;
   }
   return result;
 }
