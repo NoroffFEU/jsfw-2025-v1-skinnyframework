@@ -26,10 +26,6 @@ const Home: FC<PageProps> = ({ themeStyles }) => {
     return <div className={themeStyles.text}>{error}</div>;
   }
 
-  if (products.length === 0) {
-    return <div className={themeStyles.text}>No products available.</div>;
-  }
-
   return (
     <Wrapper themeStyles={themeStyles}>
       <div className={themeStyles.pageBody}>
@@ -44,21 +40,28 @@ const Home: FC<PageProps> = ({ themeStyles }) => {
                   className={themeStyles.image}
                 />
                 <h2 className={themeStyles.text}>{product.title}</h2>
-                <p className={themeStyles.text}>
-                  Price: ${product.price.toFixed(2)}
-                </p>
-                {product.discountedPrice < product.price && (
-                  <p className={themeStyles.discount}>
-                    Discounted: ${product.discountedPrice.toFixed(2)}
+
+                {product.discountedPrice < product.price ? (
+                  <>
+                    <p className={themeStyles.discount}>
+                      Discounted: ${product.discountedPrice.toFixed(2)}
+                    </p>
+                    <p>Total discount: {(((product.price - product.discountedPrice) / product.price) * 100).toFixed()}%</p>
+                  </>
+                ) : (
+                  <p className={themeStyles.text}>
+                    Price: ${product.price.toFixed(2)}
                   </p>
-                )}
+                )
+
+                }
               </Link>
             </div>
           ))}
         </div>
 
         {filteredProducts.length === 0 && (
-          <div className={themeStyles.text}>No matching products found.</div>
+          <p className={themeStyles.text}>No items found</p>
         )}
       </div>
     </Wrapper>
