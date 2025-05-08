@@ -46,15 +46,21 @@ const Home: FC<PageProps> = ({ themeStyles }) => {
                     <p className={themeStyles.discount}>
                       Discounted: ${product.discountedPrice.toFixed(2)}
                     </p>
-                    <p>Total discount: {(((product.price - product.discountedPrice) / product.price) * 100).toFixed()}%</p>
+                    <p>
+                      Total discount:{' '}
+                      {(
+                        ((product.price - product.discountedPrice) /
+                          product.price) *
+                        100
+                      ).toFixed()}
+                      %
+                    </p>
                   </>
                 ) : (
                   <p className={themeStyles.text}>
                     Price: ${product.price.toFixed(2)}
                   </p>
-                )
-
-                }
+                )}
               </Link>
             </div>
           ))}

@@ -5,7 +5,6 @@ import { FC } from 'react';
 const Contact: FC<PageProps> = ({ themeStyles }) => {
   return (
     <Wrapper themeStyles={themeStyles}>
-
       <>
         <h1 className={themeStyles.heading}>CONTACT</h1>
       </>
