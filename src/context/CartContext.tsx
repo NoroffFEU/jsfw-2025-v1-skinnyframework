@@ -54,7 +54,7 @@ export const CartProvider: FC<{ children: ReactNode }> = ({ children }) => {
 
   const removeFromCart = (productId: string) => {
     setCart(prev => prev.filter(item => item.id !== productId));
-    addToast("What, you didn't want it?", 'success');
+    addToast("What, you didn't want it?", 'info');
   };
 
   const updateQuantity = (productId: string, quantity: number) => {
@@ -67,13 +67,13 @@ export const CartProvider: FC<{ children: ReactNode }> = ({ children }) => {
     const isIncreasing = quantity > cartItem.quantity;
     addToast(
       isIncreasing ? 'Item quantity increased.' : 'Item quantity reduced.',
-      'success',
+      'info',
     );
   };
 
   const clearCart = () => {
     setCart([]);
-    addToast('Nada in the cart!', 'success');
+    addToast('Nada in the cart!', 'info');
   };
 
   return (
