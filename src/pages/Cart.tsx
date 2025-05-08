@@ -8,7 +8,7 @@ interface CartPageProps {
 }
 
 const Cart: FC<CartPageProps> = ({ themeStyles }) => {
-  const { cart, removeFromCart, updateQuantity } = useCart();
+  const { cart, removeFromCart, updateQuantity, clearCart } = useCart();
 
   const totalCost = cart.reduce(
     (sum, item) => sum + item.price * item.quantity,
@@ -58,6 +58,13 @@ const Cart: FC<CartPageProps> = ({ themeStyles }) => {
           <div>
             <h3>Total: ${totalCost.toFixed(2)}</h3>
             <button className={themeStyles.button}>Checkout</button>
+            <button
+              className={themeStyles.button}
+              onClick={() => clearCart()}
+            >
+              Clear Cart
+            </button>
+
           </div>
         )}
       </div>
