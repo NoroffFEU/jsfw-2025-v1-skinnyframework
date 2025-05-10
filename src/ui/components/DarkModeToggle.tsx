@@ -12,14 +12,17 @@ const DarkModeToggle: FC<DarkModeToggleProps> = ({ themeStyles }) => {
   }
 
   useEffect(() => {
-    let bodyClassName
-    isDarkMode ? bodyClassName = 'dark' : bodyClassName = '';
-    document.body.className = bodyClassName
-  }, [isDarkMode])
+    let bodyClassName;
+    isDarkMode ? (bodyClassName = 'dark') : (bodyClassName = '');
+    document.body.className = bodyClassName;
+  }, [isDarkMode]);
 
   return (
     <div className={themeStyles.darkModeToggle}>
-      <button onClick={handleThemeSwitch} className={themeStyles.darkModetoggleBtn}>
+      <button
+        onClick={handleThemeSwitch}
+        className={themeStyles.darkModetoggleBtn}
+      >
         {isDarkMode ? 'light mode' : 'dark mode'}
       </button>
     </div>
