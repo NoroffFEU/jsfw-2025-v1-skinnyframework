@@ -3,6 +3,7 @@ import { Link } from 'react-router';
 import { PageProps } from '../types/props';
 import { ProductsContext } from '../context/ProductsContext';
 import { SearchContext } from '../context/SearchContext';
+import SearchBar from '../ui/components/SearchBar';
 import Wrapper from '../ui/components/Wrapper';
 
 const Home: FC<PageProps> = ({ themeStyles }) => {
@@ -28,6 +29,7 @@ const Home: FC<PageProps> = ({ themeStyles }) => {
 
   return (
     <Wrapper themeStyles={themeStyles}>
+      <SearchBar themeStyles={themeStyles} />
       <div className={themeStyles.pageBody}>
         <h1 className={themeStyles.heading}>Products</h1>
         <div className={themeStyles.grid}>
