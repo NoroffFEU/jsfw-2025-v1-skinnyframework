@@ -38,6 +38,15 @@
     --cta-text: #ffffff;
     --icon: #e5e7eb;
   }
+
+  body {
+    background-color: var(--background);
+    transition: 300ms ease-in-out;
+
+    * {
+      transition: 300ms ease-in-out;
+    }
+  }
 }
 
 /* ========================= */
@@ -80,30 +89,36 @@
 }
 
 /* ========================= */
-/* HEADER STYLES */
-/* ========================= */
-
-.header {
-  padding: 1rem 2rem;
-  background-color: var(--header-footer);
-}
-
-/* ========================= */
 /* WRAPPER STYLES */
 /* ========================= */
 
 .wrapper {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: space-between;
   max-width: 1240px;
-  margin: 0 auto; /* Center content */
+  margin: 0 auto;
+  /* Center content */
   padding: 0 1.5rem;
 }
 
 @media (max-width: 768px) {
   .wrapper {
     padding: 0 0.75rem;
+  }
+}
+
+/* ========================= */
+/* HEADER STYLES */
+/* ========================= */
+
+.header {
+  padding: 1rem 2rem;
+  background-color: var(--header-footer);
+
+  .wrapper {
+    flex-direction: row;
   }
 }
 
@@ -139,6 +154,7 @@
   display: flex;
   align-items: center;
   gap: 2rem;
+  margin-inline-start: auto;
 }
 
 .navList {
@@ -270,7 +286,23 @@
   font-family: var(--font-heading);
   font-weight: 700;
   color: var(--text);
-  margin-left: 10vw;
+}
+
+/* ========================= */
+/* SEARCH BAR */
+/* ========================= */
+
+.searchBar {
+  display: flex;
+  gap: calc(0.125rem + 1vw);
+  align-items: center;
+  align-self: flex-start;
+  margin-block-start: 1rem;
+
+  input {
+    line-height: 1.75;
+    padding-inline: 0.5rem;
+  }
 }
 
 /* ========================= */
