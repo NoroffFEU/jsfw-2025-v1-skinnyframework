@@ -71,8 +71,7 @@ const ToastContainer: FC<ToastContainerProps> = ({ toasts, removeToast }) => {
         bottom: '20px',
         right: '20px',
         zIndex: 9999,
-      }}
-    >
+      }}>
       {toasts.map(toast => (
         <div
           key={toast.id}
@@ -85,8 +84,7 @@ const ToastContainer: FC<ToastContainerProps> = ({ toasts, removeToast }) => {
             borderRadius: '5px',
             minWidth: '200px',
             cursor: 'pointer', // Visual cue that it's clickable
-          }}
-        >
+          }}>
           {toast.message}
         </div>
       ))}

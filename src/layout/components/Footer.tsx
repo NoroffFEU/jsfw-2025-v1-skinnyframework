@@ -26,15 +26,13 @@ const Footer: FC<PageProps> = ({ themeStyles }) => {
           <a
             href="https://twitter.com"
             target="_blank"
-            rel="noopener noreferrer"
-          >
+            rel="noopener noreferrer">
             Twitter
           </a>
           <a
             href="https://instagram.com"
             target="_blank"
-            rel="noopener noreferrer"
-          >
+            rel="noopener noreferrer">
             Instagram
           </a>
         </div>

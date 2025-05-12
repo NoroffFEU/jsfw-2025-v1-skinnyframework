@@ -25,8 +25,7 @@ const DarkModeToggle: FC<DarkModeToggleProps> = ({ themeStyles }) => {
     <div className={themeStyles.darkModeToggle}>
       <button
         onClick={handleThemeSwitch}
-        className={themeStyles.darkModetoggleBtn}
-      >
+        className={themeStyles.darkModetoggleBtn}>
         <span>{isDarkMode ? 'L' : 'D'}</span>
         {/* <img
           className={themeStyles.darkModeToggleIcon}

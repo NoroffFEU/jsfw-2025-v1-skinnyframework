@@ -16,15 +16,13 @@ const Nav: FC<NavProps> = ({ themeStyles, routes }) => {
       {/* Hamburger Button */}
       <button
         className={themeStyles.hamburger}
-        onClick={() => setMenuOpen(!menuOpen)}
-      >
+        onClick={() => setMenuOpen(!menuOpen)}>
         ☰
       </button>
 
       {/* Navigation Links */}
       <ul
-        className={`${themeStyles.navList} ${menuOpen ? themeStyles.navOpen : ''}`}
-      >
+        className={`${themeStyles.navList} ${menuOpen ? themeStyles.navOpen : ''}`}>
         {routes
           .filter(({ showInNav }) => showInNav)
           .map(({ path, element }) => (

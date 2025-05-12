@@ -33,21 +33,18 @@ const Cart: FC<CartPageProps> = ({ themeStyles }) => {
                     item.id,
                     item.quantity > 1 ? item.quantity - 1 : 1,
                   )
-                }
-              >
+                }>
                 -
               </button>
               <button
                 className={themeStyles.button}
-                onClick={() => updateQuantity(item.id, item.quantity + 1)}
-              >
+                onClick={() => updateQuantity(item.id, item.quantity + 1)}>
                 +
               </button>
             </div>
             <button
               className={themeStyles.button}
-              onClick={() => removeFromCart(item.id)}
-            >
+              onClick={() => removeFromCart(item.id)}>
               Remove
             </button>
           </div>
