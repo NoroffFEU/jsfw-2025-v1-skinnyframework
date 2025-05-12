@@ -118,10 +118,12 @@ body {
   }
 
   .darkModeToggleBtn {
-    display: inline-grid;
-    padding: 1rem;
+    display: inline-block;
+    padding: 0.25rem;
     aspect-ratio: 1;
     border: 2px solid var(--accent);
+    background-color: var(--background);
+    border-radius: 50%;
   }
 }
 
