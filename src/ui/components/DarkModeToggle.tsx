@@ -20,7 +20,7 @@ const DarkModeToggle: FC<DarkModeToggleProps> = ({ themeStyles }) => {
 
   const svgStyles = {
     width: '40px',
-    height: '40px'
+    height: '40px',
   };
 
   return (
@@ -40,7 +40,8 @@ const DarkModeToggle: FC<DarkModeToggleProps> = ({ themeStyles }) => {
             style={{
               opacity: isDarkMode ? 0 : 1,
               transform: isDarkMode ? 'scale(0.5)' : 'scale(1)',
-              transition: 'opacity 0.5s ease-in-out, transform 0.5s ease-in-out'
+              transition:
+                'opacity 0.5s ease-in-out, transform 0.5s ease-in-out',
             }}
           >
             <circle cx="50" cy="50" r="25" fill="#FFD700" />
@@ -62,7 +63,8 @@ const DarkModeToggle: FC<DarkModeToggleProps> = ({ themeStyles }) => {
             style={{
               opacity: isDarkMode ? 1 : 0,
               transform: isDarkMode ? 'scale(1)' : 'scale(0.5)',
-              transition: 'opacity 0.5s ease-in-out, transform 0.5s ease-in-out'
+              transition:
+                'opacity 0.5s ease-in-out, transform 0.5s ease-in-out',
             }}
           >
             <path
