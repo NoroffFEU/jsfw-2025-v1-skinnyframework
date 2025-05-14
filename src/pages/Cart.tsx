@@ -9,14 +9,9 @@ interface CartPageProps {
 }
 
 const Cart: FC<CartPageProps> = ({ themeStyles }) => {
-  const { cart, removeFromCart, updateQuantity, clearCart } = useCart();
+  const { cart, removeFromCart, updateQuantity, clearCart, totalCostDisplay } = useCart();
   const { addToast } = useToast();
   const navigate = useNavigate();
-
-  const totalCost = cart.reduce(
-    (sum, item) => sum + item.price * item.quantity,
-    0,
-  );
 
   function handleCheckout() {
     if (cart.length === 0) {
@@ -65,7 +60,7 @@ const Cart: FC<CartPageProps> = ({ themeStyles }) => {
         ))}
         {cart.length > 0 && (
           <div>
-            <h3>Total: ${totalCost.toFixed(2)}</h3>
+            <h3>Total: {totalCostDisplay()}</h3>
             <button
               className={themeStyles.button}
               onClick={() => handleCheckout()}>

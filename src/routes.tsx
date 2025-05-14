@@ -17,7 +17,7 @@ const routes = [
   {
     path: '/checkout',
     element: <Checkout themeStyles={themeStyles} />,
-    showInNav: true,
+    showInNav: false,
   }, // Checkout page
   {
     path: '/product/:id',
