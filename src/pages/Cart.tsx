@@ -2,6 +2,7 @@ import { FC } from 'react';
 import { useCart } from '../context/CartContext';
 import Wrapper from '../ui/components/Wrapper';
 import { useNavigate } from 'react-router';
+import { useToast } from '../context/ToastContext';
 
 interface CartPageProps {
   themeStyles: { [key: string]: string };
@@ -9,12 +10,23 @@ interface CartPageProps {
 
 const Cart: FC<CartPageProps> = ({ themeStyles }) => {
   const { cart, removeFromCart, updateQuantity, clearCart } = useCart();
+  const { addToast } = useToast();
   const navigate = useNavigate();
 
   const totalCost = cart.reduce(
     (sum, item) => sum + item.price * item.quantity,
     0,
   );
+
+  function handleCheckout() {
+    if (cart.length === 0) {
+      addToast('Your cart is empty!', 'error');
+      return;
+    } else {
+      addToast('Proceeding to checkout...', 'success');
+      navigate('/checkout');
+    }
+  }
 
   return (
     <Wrapper themeStyles={themeStyles}>
@@ -54,7 +66,11 @@ const Cart: FC<CartPageProps> = ({ themeStyles }) => {
         {cart.length > 0 && (
           <div>
             <h3>Total: ${totalCost.toFixed(2)}</h3>
-            <button className={themeStyles.button} onClick={() => navigate('/checkout')}>Checkout</button>
+            <button
+              className={themeStyles.button}
+              onClick={() => handleCheckout()}>
+              Checkout
+            </button>
             <button className={themeStyles.button} onClick={() => clearCart()}>
               Clear Cart
             </button>
