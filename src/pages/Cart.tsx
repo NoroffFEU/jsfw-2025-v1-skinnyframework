@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import { useCart } from '../context/CartContext';
 import Wrapper from '../ui/components/Wrapper';
+import { useNavigate } from 'react-router';
 
 interface CartPageProps {
   themeStyles: { [key: string]: string };
@@ -8,6 +9,7 @@ interface CartPageProps {
 
 const Cart: FC<CartPageProps> = ({ themeStyles }) => {
   const { cart, removeFromCart, updateQuantity, clearCart } = useCart();
+  const navigate = useNavigate();
 
   const totalCost = cart.reduce(
     (sum, item) => sum + item.price * item.quantity,
@@ -52,7 +54,7 @@ const Cart: FC<CartPageProps> = ({ themeStyles }) => {
         {cart.length > 0 && (
           <div>
             <h3>Total: ${totalCost.toFixed(2)}</h3>
-            <button className={themeStyles.button}>Checkout</button>
+            <button className={themeStyles.button} onClick={() => navigate('/checkout')}>Checkout</button>
             <button className={themeStyles.button} onClick={() => clearCart()}>
               Clear Cart
             </button>
