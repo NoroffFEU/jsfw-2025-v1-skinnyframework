@@ -24,7 +24,8 @@ const Nav: FC<NavProps> = ({ themeStyles, routes }) => {
         onClick={() => setMenuOpen(!menuOpen)}>
         ☰
       </button>
-      <ul className={`${themeStyles.navList} ${menuOpen ? themeStyles.navOpen : ''}`}>
+      <ul
+        className={`${themeStyles.navList} ${menuOpen ? themeStyles.navOpen : ''}`}>
         {routes
           .filter(({ showInNav }) => showInNav)
           .map(({ path, label }) => (
@@ -34,8 +35,7 @@ const Nav: FC<NavProps> = ({ themeStyles, routes }) => {
                 className={({ isActive }) =>
                   `${themeStyles.navLink} ${isActive ? themeStyles.activeLink : ''}`
                 }
-                onClick={() => setMenuOpen(false)}
-              >
+                onClick={() => setMenuOpen(false)}>
                 {label || path}
               </NavLink>
             </li>
