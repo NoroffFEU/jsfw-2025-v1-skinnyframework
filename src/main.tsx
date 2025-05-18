@@ -16,7 +16,7 @@ interface FallbackUIProps {
   themeStyles: Record<string, string>;
 }
 
-function displayFallbackUI({ error, themeStyles }: FallbackUIProps): void {
+function displayFallbackUI({ error }: FallbackUIProps): void {
   console.error('Fatal error encountered:', error);
   // Clear the existing content and create a fallback UI with inline styling.
   document.body.innerHTML = `
