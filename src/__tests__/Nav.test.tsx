@@ -23,7 +23,7 @@ test('Nav renders navigation links and CartIcon', () => {
   render(
     <MemoryRouter>
       <Nav themeStyles={themeStyles} routes={routes} />
-    </MemoryRouter>
+    </MemoryRouter>,
   );
   expect(screen.getByText('Home')).toBeInTheDocument();
   expect(screen.getByText('Contact')).toBeInTheDocument();

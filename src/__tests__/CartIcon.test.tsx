@@ -12,7 +12,7 @@ test('CartIcon displays correct item count', () => {
   render(
     <CartProvider>
       <CartIcon themeStyles={themeStyles} />
-    </CartProvider>
+    </CartProvider>,
   );
 
   // Initially, cart count should not be visible

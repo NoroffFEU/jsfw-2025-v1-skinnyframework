@@ -14,9 +14,11 @@ test('SearchBar displays input and triggers toast on no results', () => {
       <SearchContext.Provider value={{ searchQuery: 'abc', setSearchQuery }}>
         <SearchBar themeStyles={themeStyles} filteredProducts={[]} />
       </SearchContext.Provider>
-    </ToastProvider>
+    </ToastProvider>,
   );
-  expect(screen.getByPlaceholderText('Find exactly what you need...')).toBeInTheDocument();
+  expect(
+    screen.getByPlaceholderText('Find exactly what you need...'),
+  ).toBeInTheDocument();
   expect(screen.getByText('Search')).toBeInTheDocument();
   // Toast should appear for no results
   expect(screen.getByText('No products found')).toBeInTheDocument();

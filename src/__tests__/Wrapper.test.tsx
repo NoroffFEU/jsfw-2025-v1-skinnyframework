@@ -8,7 +8,7 @@ test('Wrapper renders children', () => {
   render(
     <Wrapper themeStyles={themeStyles}>
       <div>Wrapped Content</div>
-    </Wrapper>
+    </Wrapper>,
   );
   expect(screen.getByText('Wrapped Content')).toBeInTheDocument();
 });
