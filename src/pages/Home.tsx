@@ -57,10 +57,10 @@ const Home: FC<PageProps> = ({ themeStyles }) => {
       />
       <div className={themeStyles.pageBody}>
         <div className={themeStyles.sortItems}>
-          <button onClick={handleAlphaSort}>
+          <button className={themeStyles.button} onClick={handleAlphaSort}>
             alphabetically: {ascendingAlpha ? 'ascending' : 'descending'}
           </button>
-          <button onClick={handlePriceSort}>
+          <button className={themeStyles.button} onClick={handlePriceSort}>
             price: {ascendingPrice ? 'ascending' : 'descending'}
           </button>
         </div>
