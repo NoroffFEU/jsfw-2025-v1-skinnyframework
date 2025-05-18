@@ -78,16 +78,22 @@ export const CartProvider: FC<{ children: ReactNode }> = ({ children }) => {
   };
 
   const totalCostDisplay = () => {
-    const totalCost = cart.reduce(
-      (sum, item) => sum + item.price * item.quantity,
-      0,
-    ).toFixed(2)
+    const totalCost = cart
+      .reduce((sum, item) => sum + item.price * item.quantity, 0)
+      .toFixed(2);
     return `$${totalCost}`;
-  }
+  };
 
   return (
     <CartContext.Provider
-      value={{ cart, addToCart, removeFromCart, updateQuantity, clearCart, totalCostDisplay }}>
+      value={{
+        cart,
+        addToCart,
+        removeFromCart,
+        updateQuantity,
+        clearCart,
+        totalCostDisplay,
+      }}>
       {children}
     </CartContext.Provider>
   );

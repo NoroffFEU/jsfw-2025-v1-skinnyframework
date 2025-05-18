@@ -51,11 +51,18 @@ const Home: FC<PageProps> = ({ themeStyles }) => {
 
   return (
     <Wrapper themeStyles={themeStyles}>
-      <SearchBar themeStyles={themeStyles} filteredProducts={filteredProducts} />
+      <SearchBar
+        themeStyles={themeStyles}
+        filteredProducts={filteredProducts}
+      />
       <div className={themeStyles.pageBody}>
         <div className={themeStyles.sortItems}>
-          <button onClick={handleAlphaSort}>alphabetically: {(ascendingAlpha) ? 'ascending' : 'descending'}</button>
-          <button onClick={handlePriceSort}>price: {(ascendingPrice) ? 'ascending' : 'descending'}</button>
+          <button onClick={handleAlphaSort}>
+            alphabetically: {ascendingAlpha ? 'ascending' : 'descending'}
+          </button>
+          <button onClick={handlePriceSort}>
+            price: {ascendingPrice ? 'ascending' : 'descending'}
+          </button>
         </div>
         <h1 className={themeStyles.heading}>Products</h1>
         <div className={themeStyles.grid}>

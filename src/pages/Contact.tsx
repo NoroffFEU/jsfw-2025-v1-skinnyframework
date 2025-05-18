@@ -13,7 +13,9 @@ const Contact: FC<PageProps> = ({ themeStyles }) => {
 
   const { addToast } = useToast(); // Assuming you have a toast function available
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 

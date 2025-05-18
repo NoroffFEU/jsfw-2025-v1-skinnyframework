@@ -2,7 +2,7 @@ import { FC, useContext, useEffect } from 'react';
 import { SearchContext } from '../../context/SearchContext';
 import { Link } from 'react-router';
 import { ThemeStyles } from '../../types/props';
-import { useToast } from '../../context/ToastContext'
+import { useToast } from '../../context/ToastContext';
 
 interface SearchBarProps {
   themeStyles: ThemeStyles;
@@ -15,12 +15,9 @@ const SearchBar: FC<SearchBarProps> = ({ themeStyles, filteredProducts }) => {
 
   useEffect(() => {
     if (searchQuery && filteredProducts.length === 0) {
-      addToast('No products found',
-        'error',
-      );
+      addToast('No products found', 'error');
     }
-  }
-    , [filteredProducts]);
+  }, [filteredProducts]);
 
   return (
     <div className={themeStyles.searchBar}>

@@ -13,26 +13,24 @@ const Checkout: FC<PageProps> = ({ themeStyles }) => {
   if (!cart) {
     useEffect(() => {
       setTimeout(() => {
-        navigate('/')
+        navigate('/');
       }, 3000);
-    }, [])
+    }, []);
 
     return (
       <Wrapper themeStyles={themeStyles}>
         <div>
-          <p>
-            Not sure what you're doing here.
-          </p>
+          <p>Not sure what you're doing here.</p>
         </div>
       </Wrapper>
-    )
+    );
   } else {
     useEffect(() => {
       setOrderTotal(totalCostDisplay());
 
       setTimeout(() => {
         clearCart();
-      }, 500)
+      }, 500);
     }, []);
 
     return (
@@ -41,22 +39,15 @@ const Checkout: FC<PageProps> = ({ themeStyles }) => {
           <p className={themeStyles.text}>
             Thank you for your order! Your order has been placed successfully.
           </p>
-          <p>
-            the total price of your order is: {orderTotal}
-          </p>
-          <p>
-            We may or may not send it to you. Good Luck with that!
-          </p>
-          <button
-            className={themeStyles.button}
-            onClick={() => navigate('/')}>
+          <p>the total price of your order is: {orderTotal}</p>
+          <p>We may or may not send it to you. Good Luck with that!</p>
+          <button className={themeStyles.button} onClick={() => navigate('/')}>
             Spend some more money
           </button>
         </div>
       </Wrapper>
     );
   }
-
 };
 
 export default Checkout;

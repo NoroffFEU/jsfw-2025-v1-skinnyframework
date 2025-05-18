@@ -9,7 +9,8 @@ interface CartPageProps {
 }
 
 const Cart: FC<CartPageProps> = ({ themeStyles }) => {
-  const { cart, removeFromCart, updateQuantity, clearCart, totalCostDisplay } = useCart();
+  const { cart, removeFromCart, updateQuantity, clearCart, totalCostDisplay } =
+    useCart();
   const { addToast } = useToast();
   const navigate = useNavigate();
 
