@@ -22,11 +22,14 @@ export interface PageProps {
  * @interface RouteProps
  * @property {string} path - The URL path for the route.
  * @property {React.ReactNode} element - The component or element to render for this route.
+ * @property {boolean} showInNav - Whether to show the route in the navigation.
+ * @property {string} [label] - The optional label for the route.
  */
 export interface RouteProps {
   path: string;
   element: React.ReactNode;
   showInNav: boolean;
+  label?: string;
 }
 
 /**

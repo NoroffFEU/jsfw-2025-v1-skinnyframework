@@ -25,7 +25,7 @@ const Nav: FC<NavProps> = ({ themeStyles, routes }) => {
         className={`${themeStyles.navList} ${menuOpen ? themeStyles.navOpen : ''}`}>
         {routes
           .filter(({ showInNav }) => showInNav)
-          .map(({ path, element }) => (
+          .map(({ path, element, label }) => (
             <li key={path}>
               <NavLink
                 to={path}
@@ -34,10 +34,7 @@ const Nav: FC<NavProps> = ({ themeStyles, routes }) => {
                 }
                 onClick={() => setMenuOpen(false)} // Close menu after clicking a link
               >
-                {React.isValidElement(element) &&
-                typeof element.type === 'function'
-                  ? element.type.name
-                  : ''}
+                {label || path}
               </NavLink>
             </li>
           ))}

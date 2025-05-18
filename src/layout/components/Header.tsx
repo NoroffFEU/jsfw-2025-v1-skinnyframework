@@ -14,7 +14,7 @@ const Header: FC<HeaderProps> = ({ themeStyles, routes }) => {
     <header className={themeStyles.header}>
       <Wrapper themeStyles={themeStyles}>
         <a className={themeStyles.logoLink} href="/">
-          <img src="/src/assets/logoSVG.svg" alt="GLiP logo" />
+          <img src="/assets/logoSVG.svg" alt="GLiP logo" />
           <span className={themeStyles.logoText}>GLiP</span>
         </a>
         <Nav themeStyles={themeStyles} routes={routes} />

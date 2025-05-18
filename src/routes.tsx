@@ -8,11 +8,12 @@ import ErrorPage from './pages/ErrorPage';
 import themeStyles from './styles/theme.module.css';
 
 const routes = [
-  { path: '/', element: <Home themeStyles={themeStyles} />, showInNav: true }, // Home page
+  { path: '/', element: <Home themeStyles={themeStyles} />, showInNav: true, label: 'Home' }, // Home page
   {
     path: '/contact',
     element: <Contact themeStyles={themeStyles} />,
     showInNav: true,
+    label: 'Contact',
   }, // Contact page
   {
     path: '/checkout',
