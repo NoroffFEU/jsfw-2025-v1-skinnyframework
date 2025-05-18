@@ -1,4 +1,4 @@
-import { useContext, useMemo, FC } from 'react';
+import { useContext, useMemo, FC, useState } from 'react';
 import { Link } from 'react-router';
 import { PageProps } from '../types/props';
 import { ProductsContext } from '../context/ProductsContext';
@@ -9,6 +9,8 @@ import Wrapper from '../ui/components/Wrapper';
 const Home: FC<PageProps> = ({ themeStyles }) => {
   const { products, loading, error } = useContext(ProductsContext);
   const { searchQuery } = useContext(SearchContext);
+  const [ascendingAlpha, setAscendingAlpha] = useState(true);
+  const [ascendingPrice, setAscendingPrice] = useState(true);
 
   // Filter products using the global search query; useMemo prevents unnecessary recalculations.
   const filteredProducts = useMemo(
@@ -27,10 +29,34 @@ const Home: FC<PageProps> = ({ themeStyles }) => {
     return <div className={themeStyles.text}>{error}</div>;
   }
 
+  function handleAlphaSort() {
+    if (ascendingAlpha) {
+      setAscendingAlpha(false);
+      filteredProducts.sort((a, b) => b.title.localeCompare(a.title));
+    } else {
+      setAscendingAlpha(true);
+      filteredProducts.sort((a, b) => a.title.localeCompare(b.title));
+    }
+  }
+
+  function handlePriceSort() {
+    if (ascendingPrice) {
+      setAscendingPrice(false);
+      filteredProducts.sort((a, b) => b.discountedPrice - a.discountedPrice);
+    } else {
+      setAscendingPrice(true);
+      filteredProducts.sort((a, b) => a.discountedPrice - b.discountedPrice);
+    }
+  }
+
   return (
     <Wrapper themeStyles={themeStyles}>
-      <SearchBar themeStyles={themeStyles} />
+      <SearchBar themeStyles={themeStyles} filteredProducts={filteredProducts} />
       <div className={themeStyles.pageBody}>
+        <div className={themeStyles.sortItems}>
+          <button onClick={handleAlphaSort}>alphabetically: {(ascendingAlpha) ? 'ascending' : 'descending'}</button>
+          <button onClick={handlePriceSort}>price: {(ascendingPrice) ? 'ascending' : 'descending'}</button>
+        </div>
         <h1 className={themeStyles.heading}>Products</h1>
         <div className={themeStyles.grid}>
           {filteredProducts.map(product => (

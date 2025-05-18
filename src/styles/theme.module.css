@@ -204,7 +204,10 @@ body {
   }
 }
 
+/* ========================= */
 /* Hamburger Menu */
+/* ========================= */
+
 .hamburger {
   display: none;
   font-size: 2rem;
@@ -343,4 +346,23 @@ body {
 .discount {
   color: var(--accent);
   font-weight: bold;
+}
+
+/* ========================= */
+/* CONTACT FORM */
+/* ========================= */
+
+.form {
+  display: grid;
+  gap: 1rem;
+  justify-content: center;
+
+  input {
+    line-height: 1.75;
+    padding-inline: 0.5rem;
+  }
+
+  textarea::placeholder {
+    padding-inline: 0.5rem;
+  }
 }
