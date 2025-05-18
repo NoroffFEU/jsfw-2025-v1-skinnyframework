@@ -3,7 +3,7 @@ import { RouteProps, ThemeStyles } from '../../types/props';
 import Wrapper from '../../ui/components/Wrapper.jsx';
 import Nav from '../../ui/components/Nav.js';
 import DarkModeToggle from '../../ui/components/DarkModeToggle.tsx';
-import logoSVG from '../../assets/logoSvg.svg';
+import logoSVG from '../../assets/logoSVG.svg';
 
 interface HeaderProps {
   themeStyles: ThemeStyles;
