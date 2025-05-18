@@ -17,9 +17,11 @@ test('SearchBar displays input and triggers toast on no results', () => {
           <SearchBar themeStyles={themeStyles} filteredProducts={[]} />
         </SearchContext.Provider>
       </ToastProvider>
-    </MemoryRouter>
+    </MemoryRouter>,
   );
-  expect(screen.getByPlaceholderText('Find exactly what you need...')).toBeInTheDocument();
+  expect(
+    screen.getByPlaceholderText('Find exactly what you need...'),
+  ).toBeInTheDocument();
   expect(screen.getByText('Search')).toBeInTheDocument();
   // Toast should appear for no results
   expect(screen.getByText('No products found')).toBeInTheDocument();

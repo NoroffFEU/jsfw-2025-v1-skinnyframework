@@ -15,7 +15,7 @@ test('CartIcon displays correct item count', () => {
       <CartProvider>
         <CartIcon themeStyles={themeStyles} />
       </CartProvider>
-    </ToastProvider>
+    </ToastProvider>,
   );
 
   // Initially, cart count should not be visible

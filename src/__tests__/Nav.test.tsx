@@ -29,7 +29,7 @@ test('Nav renders navigation links and CartIcon', () => {
           <Nav themeStyles={themeStyles} routes={routes} />
         </CartProvider>
       </ToastProvider>
-    </MemoryRouter>
+    </MemoryRouter>,
   );
   // There should be two navigation links (Home and Contact)
   const navLinks = screen.getAllByRole('link');
