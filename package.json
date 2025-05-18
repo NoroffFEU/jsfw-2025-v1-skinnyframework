@@ -10,8 +10,7 @@
     "build": "vite build",
     "lint": "eslint .",
     "sexify": "prettier --write .",
-    "preview": "vite preview",
-    "prepare": "husky install"
+    "preview": "vite preview"
   },
   "lint-staged": {
     "*.{js, jsx, ts, tsx}": [
