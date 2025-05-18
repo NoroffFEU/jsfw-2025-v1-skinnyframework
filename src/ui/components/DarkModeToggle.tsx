@@ -1,3 +1,7 @@
+/**
+ * DarkModeToggle component for switching between light and dark themes.
+ * @param themeStyles - Theme styles object
+ */
 import { FC, useState, useEffect } from 'react';
 
 interface DarkModeToggleProps {
@@ -29,7 +33,6 @@ const DarkModeToggle: FC<DarkModeToggleProps> = ({ themeStyles }) => {
           style={svgStyles}
           viewBox="0 0 100 100"
           xmlns="http://www.w3.org/2000/svg">
-          {/* Sun Icon – visible in light mode */}
           <g
             id="sunIcon"
             style={{
@@ -51,7 +54,6 @@ const DarkModeToggle: FC<DarkModeToggleProps> = ({ themeStyles }) => {
             </g>
           </g>
 
-          {/* Moon Icon – visible in dark mode */}
           <g
             id="moonIcon"
             style={{

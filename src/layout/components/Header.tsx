@@ -1,3 +1,9 @@
+/**
+ * Header component for the application layout.
+ * Displays the logo, navigation, and dark mode toggle.
+ * @param themeStyles - Theme styles object
+ * @param routes - Array of route objects for navigation
+ */
 import { FC } from 'react';
 import { RouteProps, ThemeStyles } from '../../types/props';
 import Wrapper from '../../ui/components/Wrapper.jsx';

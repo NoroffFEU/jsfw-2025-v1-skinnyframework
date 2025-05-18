@@ -1,3 +1,8 @@
+/**
+ * Wrapper component for layout structure.
+ * @param children - Nested components or elements
+ * @param themeStyles - Theme styles object
+ */
 import { FC } from 'react';
 import { WrapperProps } from 'types/props';
 

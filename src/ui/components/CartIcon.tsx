@@ -1,3 +1,7 @@
+/**
+ * CartIcon component displays the cart icon and item count.
+ * @param themeStyles - Theme styles object
+ */
 import { FC } from 'react';
 import { useCart } from '../../context/CartContext';
 
