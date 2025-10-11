@@ -1,6 +1,11 @@
 import { FC } from 'react';
 import { PageProps } from '../../types/props';
 
+/**
+ * Footer component for the application layout.
+ * Displays links to contact and useful information, social media links and copyright info.
+ * @param themeStyles - Theme styles object
+ */
 const Footer: FC<PageProps> = ({ themeStyles }) => {
   return (
     <footer className={themeStyles.footer}>
